@@ -1,41 +1,53 @@
 <?php echo $header; ?>
-<div class="container">
-  <ul class="breadcrumb">
+  <div class="container-fluid" >
+
+  <ul class="breadcrumb" style="display:none;">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
     <?php } ?>
   </ul>
-  <div class="row"><?php echo $column_left; ?>
+  <div class="row" ><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
     <?php } elseif ($column_left || $column_right) { ?>
     <?php $class = 'col-sm-9'; ?>
+    <?php $class = 'col-sm-10'; ?>
     <?php } else { ?>
-    <?php $class = 'col-sm-12'; ?>
+    <?php $class = 'col-sm-10'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+    <div class="col-sm-1"></div>
+    <div id="content" style="background-color:#F6F7F7;min-height:500px; " class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <div class="row">
         <?php if ($column_left && $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
         <?php } elseif ($column_left || $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
+        <?php $class = 'col-sm-5 col-xs-12'; ?>
         <?php } else { ?>
-        <?php $class = 'col-sm-8'; ?>
+        <?php $class = 'col-sm-5 col-xs-12'; ?>
         <?php } ?>
         <div class="<?php echo $class; ?>">
           <?php if ($thumb || $images) { ?>
           <ul class="thumbnails">
             <?php if ($thumb) { ?>
-            <li><a class="thumbnail" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+            <li><a class="feature-img-container thumbnail1" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>">
+              <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
+
+              <?php if($quantity <= 0) { ?>
+                  <img class="img-sold" src="<?php echo $sold_image; ?>" alt="" title="" class="img-responsive" />
+
+              <?php } ?>
+
+            </a></li>
             <?php } ?>
             <?php if ($images) { ?>
             <?php foreach ($images as $image) { ?>
-            <li class="image-additional"><a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+            <li class="image-additional"><a class="thumbnail1" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
             <?php } ?>
             <?php } ?>
           </ul>
           <?php } ?>
-          <ul class="nav nav-tabs">
+          <ul class="nav nav-tabs" style="display:none;">
             <li class="active"><a href="#tab-description" data-toggle="tab"><?php echo $tab_description; ?></a></li>
             <?php if ($attribute_groups) { ?>
             <li><a href="#tab-specification" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
@@ -44,7 +56,7 @@
             <li><a href="#tab-review" data-toggle="tab"><?php echo $tab_review; ?></a></li>
             <?php } ?>
           </ul>
-          <div class="tab-content">
+          <div class="tab-content" style="display:none;">
             <div class="tab-pane active" id="tab-description"><?php echo $description; ?></div>
             <?php if ($attribute_groups) { ?>
             <div class="tab-pane" id="tab-specification">
@@ -127,27 +139,58 @@
         <?php $class = 'col-sm-6'; ?>
         <?php } elseif ($column_left || $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
+        <?php $class = 'col-sm-7 col-xs-12'; ?>
         <?php } else { ?>
-        <?php $class = 'col-sm-4'; ?>
+        <?php $class = 'col-sm-7 col-xs-12'; ?>
         <?php } ?>
-        <div class="<?php echo $class; ?>">
-          <div class="btn-group">
+        <div class="<?php echo $class; ?>" style="padding:15px;">
+          <div class="btn-group" style="display:none;">
             <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product_id; ?>');"><i class="fa fa-heart"></i></button>
             <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product_id; ?>');"><i class="fa fa-exchange"></i></button>
           </div>
-          <h1><?php echo $heading_title; ?></h1>
-          <ul class="list-unstyled">
+<!---------------------------ccccccccc---------------------------------->
+          <h2><?php echo $heading_title; ?></h2>
+          <ul class="list-unstyled" >
             <?php if ($manufacturer) { ?>
             <li><?php echo $text_manufacturer; ?> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
             <?php } ?>
-            <li><?php echo $text_model; ?> <?php echo $model; ?></li>
-            <?php if ($reward) { ?>
-            <li><?php echo $text_reward; ?> <?php echo $reward; ?></li>
+
+            <li><h3> <?php echo $model; ?></h3></li>
+            <?php if ($auction) { ?>
+                <li><h4><b><?php echo $text_auction; ?>:</b> <?php echo $auction; ?></h4></li>
             <?php } ?>
-            <li><?php echo $text_stock; ?> <?php echo $stock; ?></li>
+            <?php if ($open_days) { ?>              
+                <li><h4><b><?php echo $text_opendays; ?>:</b> <?php echo $open_days; ?></h4></li>
+            <?php } ?>
+
+
+           </ul>
+          <ul class="list-inline">
+          
+            <?php if ($bathrooms) { ?>              
+              <li style="vertical-align: bottom;">
+                <img src="./image/bath.png" height="40px" title="Bathroom" alt="Bathroom"> <span style="font-size:16px;"><?php echo $bathrooms; ?>&nbsp;&nbsp;</span></li>
+            <?php } ?>
+
+            <?php if ($bedrooms) { ?>              
+                <li><img src="./image/bed.png" height="40px" title="Bathroom" alt="Bathroom"> <span style="font-size:16px;"><?php echo $bedrooms; ?>&nbsp;&nbsp;</span></li>
+            <?php } ?>
+
+            <?php if ($garaoges) { ?>              
+                <li><img src="./image/garage.png" height="40px" title="Bathroom" alt="Bathroom"> <span style="font-size:16px;"><?php echo $garaoges; ?>&nbsp;&nbsp;</span></li>
+            <?php } ?>
+            
+            <?php if ($sittingrooms) { ?>              
+                <li><img src="./image/sofa.png" height="40px" title="Bathroom" alt="Bathroom"> <span style="font-size:16px;"><?php echo $sittingrooms; ?>&nbsp;&nbsp;</span></li>
+            <?php } ?>
+
           </ul>
-          <?php if ($price) { ?>
           <ul class="list-unstyled">
+            <li><h4> <?php echo $description; ?></h4></li>
+           </ul>
+
+          <?php if ($price) { ?>
+          <ul class="list-unstyled" style="display:none;">
             <?php if (!$special) { ?>
             <li>
               <h2><?php echo $price; ?></h2>
@@ -174,7 +217,7 @@
             <?php } ?>
           </ul>
           <?php } ?>
-          <div id="product">
+          <div id="product" style="display:none;">
             <?php if ($options) { ?>
             <hr>
             <h3><?php echo $text_option; ?></h3>
@@ -324,7 +367,7 @@
             <?php } ?>
           </div>
           <?php if ($review_status) { ?>
-          <div class="rating">
+          <div class="rating" style="display:none;">
             <p>
               <?php for ($i = 1; $i <= 5; $i++) { ?>
               <?php if ($rating < $i) { ?>
@@ -415,7 +458,13 @@
       </p>
       <?php } ?>
       <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
+      </div>
+          <div class="row" style=" height:30px; text-align:right;">
+           <div class="col-sm-11" ><a style="font-size:18px;color:#606060;" href="javascript: window.history.go(-1);"><?php echo $text_back; ?></a>
+          </div>
+
+    <?php echo $column_right; ?>
+  </div>
 </div>
 <script type="text/javascript"><!--
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
@@ -605,5 +654,5 @@ $(document).ready(function() {
 		}
 	});
 });
-//--></script> 
+//--></script>
 <?php echo $footer; ?>

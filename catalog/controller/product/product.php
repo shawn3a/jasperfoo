@@ -12,7 +12,12 @@ class ControllerProductProduct extends Controller {
 			'href' => $this->url->link('common/home')
 		);
 
+		$data['current_menu'] = $this->language->get('text_home');
+
 		$this->load->model('catalog/category');
+
+		$data['current_menu'] = "";
+
 
 		if (isset($this->request->get['path'])) {
 			$path = '';
@@ -243,6 +248,13 @@ class ControllerProductProduct extends Controller {
 			$data['text_related'] = $this->language->get('text_related');
 			$data['text_loading'] = $this->language->get('text_loading');
 
+			$data['text_auction'] = $this->language->get('text_auction');
+			$data['text_opendays'] = $this->language->get('text_opendays');
+			$data['text_back'] = $this->language->get('text_back');
+			
+		
+
+
 			$data['entry_qty'] = $this->language->get('entry_qty');
 			$data['entry_name'] = $this->language->get('entry_name');
 			$data['entry_review'] = $this->language->get('entry_review');
@@ -270,6 +282,16 @@ class ControllerProductProduct extends Controller {
 			$data['reward'] = $product_info['reward'];
 			$data['points'] = $product_info['points'];
 
+			$data['quantity'] = $product_info['quantity'];
+
+			$data['open_days'] = $product_info['sku'];
+			$data['bathrooms'] = $product_info['upc'];
+			$data['bedrooms'] = $product_info['ean'];
+			$data['garaoges'] = $product_info['jan'];
+			$data['sittingrooms'] = $product_info['isbn'];
+			$data['auction'] = $product_info['mpn'];
+
+
 			if ($product_info['quantity'] <= 0) {
 				$data['stock'] = $product_info['stock_status'];
 			} elseif ($this->config->get('config_stock_display')) {
@@ -278,7 +300,14 @@ class ControllerProductProduct extends Controller {
 				$data['stock'] = $this->language->get('text_instock');
 			}
 
+
 			$this->load->model('tool/image');
+
+
+			$data['sold_image'] = $this->model_tool_image->resize('sold.png', $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+			$data['sold_popup'] = $this->model_tool_image->resize('sold.png', $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
+			$data['sold_additional'] = $this->model_tool_image->resize('sold.png', $this->config->get('config_image_additional_width'), $this->config->get('config_image_additional_height'));
+
 
 			if ($product_info['image']) {
 				$data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));

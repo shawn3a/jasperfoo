@@ -14,3 +14,8 @@ $_['text_logout']        = 'Logout';
 $_['text_checkout']      = 'Checkout';
 $_['text_search']        = 'Search';
 $_['text_all']           = 'See All';
+
+$_['text_about']           = 'ABOUT';
+$_['text_sold']           = 'SOLD PROPERTY';
+$_['text_current']           = 'CURRENT PROPERTY';
+$_['text_contact']           = 'CONTACT';

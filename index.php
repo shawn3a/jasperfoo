@@ -176,6 +176,9 @@ if (!isset($request->cookie['language']) || $request->cookie['language'] != $cod
 $config->set('config_language_id', $languages[$code]['language_id']);
 $config->set('config_language', $languages[$code]['code']);
 
+$config->set('config_current_menu', '');
+
+
 // Language
 $language = new Language($languages[$code]['directory']);
 $language->load('default');

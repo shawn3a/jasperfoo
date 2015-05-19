@@ -1,0 +1,15 @@
+/* God I hate Microsoft! */
+header #logo a img {
+	width:auto
+	}
+.camera_caption {
+	width:auto
+	}
+#cboxLoadingGraphic, #cboxLoadingOverlay {display:none !important;}
+div.sort {width:300px}
+div.limit {width:200px}
+#search input {
+	max-width:none;
+	outline:none
+	}
+.product-info .image {margin-bottom:20px;}

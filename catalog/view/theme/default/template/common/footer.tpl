@@ -1,25 +1,74 @@
-<footer>
-  <div class="container">
+<footer style="height:215">
+  <div class="container-fluid" style="background-color:white">
+
     <div class="row">
-      <?php if ($informations) { ?>
+     <div class="col-sm-1"></div>
+     <div class="col-sm-5">
+ 	           <div id="footerlogo" >
+                      <a href="http://demo.jasperfoo.co.nz/index.php?route=common/home"><img src="http://demo.jasperfoo.co.nz/image/catalog/logo.png" title="Your Store" alt="Your Store" class="img-responsive"></a>
+                  </div>
+                  <br>
+
+                <p><?php echo $text_jasperfoo; ?><br> 
+                <?php echo $text_licensed; ?>
+                |<a href="<?php echo $privacy; ?>"><?php echo $text_privacy; ?></a>
+                |<a href="<?php echo $disclaimer; ?>"><?php echo $text_disclaimer; ?></a>
+                |<a href="<?php echo $advice; ?>"><?php echo $text_advice; ?></a></p> 
+                <p><?php echo $powered; ?></p> 
+         </div>
+	
       <div class="col-sm-3">
-        <h5><?php echo $text_information; ?></h5>
-        <ul class="list-unstyled">
-          <?php foreach ($informations as $information) { ?>
-          <li><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>
-          <?php } ?>
-        </ul>
-      </div>
-      <?php } ?>
-      <div class="col-sm-3">
-        <h5><?php echo $text_service; ?></h5>
+       <!-- <h5><?php echo $text_service; ?></h5>-->
+	   	<h5><?php echo $text_contact; ?></h5>
+		
+		<!-- the following is echo contact from database  -->
+	   	<div >
+              <address>
+                  <?php echo $address; ?>
+              </address>
+             <p><b> M </b><?php echo $telephone; ?><br>
+              <b> E </b><?php echo $email; ?></p>
+              
+         </div>
+	   
+        <!-- backup. 
         <ul class="list-unstyled">
           <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
           <li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>
           <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
         </ul>
+         -->
+
       </div>
-      <div class="col-sm-3">
+	  
+      <?php if ($informations) { ?>
+	  
+			<!--<div id="logo" style="width:371px;height:53px;margin-left:550px;margin-top: 100px;">
+				  <?php if ($logo) { ?>
+				  <a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive" /></a>
+				  <?php } else { ?>
+				  <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1> 
+				  <?php } ?>
+				</div> -->
+	       
+	  
+	  
+      <div class="col-sm-3" style="border-left: 4px solid #A5A5A5;">
+        <!--<h5><?php echo $text_information; ?></h5>-->
+		<h5><?php echo $text_quicklinks; ?></h5>
+        <ul class="list-unstyled">
+          <li><a href="<?php echo $about; ?>"><?php echo $text_about; ?></a></li>
+
+          <?php foreach ($quicklinks as $quicklink) { ?>
+          <li><a href="<?php echo $quicklink['href']; ?>"><?php echo $quicklink['name']; ?></a></li>
+          <?php } ?>
+
+          <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
+
+        </ul>
+      </div>
+      <?php } ?>
+    <!--  <div class="col-sm-3">
         <h5><?php echo $text_extra; ?></h5>
         <ul class="list-unstyled">
           <li><a href="<?php echo $manufacturer; ?>"><?php echo $text_manufacturer; ?></a></li>
@@ -36,10 +85,8 @@
           <li><a href="<?php echo $wishlist; ?>"><?php echo $text_wishlist; ?></a></li>
           <li><a href="<?php echo $newsletter; ?>"><?php echo $text_newsletter; ?></a></li>
         </ul>
-      </div>
+      </div>-->
     </div>
-    <hr>
-    <p><?php echo $powered; ?></p> 
   </div>
 </footer>
 

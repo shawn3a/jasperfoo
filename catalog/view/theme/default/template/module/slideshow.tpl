@@ -1,3 +1,4 @@
+<div class="row">
 <div id="slideshow<?php echo $module; ?>" class="owl-carousel" style="opacity: 1;">
   <?php foreach ($banners as $banner) { ?>
   <div class="item">
@@ -8,6 +9,7 @@
     <?php } ?>
   </div>
   <?php } ?>
+</div>
 </div>
 <script type="text/javascript"><!--
 $('#slideshow<?php echo $module; ?>').owlCarousel({

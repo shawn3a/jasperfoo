@@ -12,6 +12,9 @@ class ControllerInformationInformation extends Controller {
 			'href' => $this->url->link('common/home')
 		);
 
+		$data['current_menu'] = $this->language->get('text_home');
+
+      /* var_dump($information_id); */
 		if (isset($this->request->get['information_id'])) {
 			$information_id = (int)$this->request->get['information_id'];
 		} else {
@@ -30,6 +33,9 @@ class ControllerInformationInformation extends Controller {
 				'href' => $this->url->link('information/information', 'information_id=' .  $information_id)
 			);
 
+			$data['current_menu'] = $information_info['title'];
+
+
 			$data['heading_title'] = $information_info['title'];
 
 			$data['button_continue'] = $this->language->get('button_continue');
@@ -44,6 +50,9 @@ class ControllerInformationInformation extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
+
+			$this->config->set('config_current_menu', $data['current_menu']);
+
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/information/information.tpl')) {
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/information/information.tpl', $data));

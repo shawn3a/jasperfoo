@@ -31,6 +31,10 @@ $_['text_semi_month']          = 'half-month';
 $_['text_month']               = 'month';
 $_['text_year']                = 'year';
 
+$_['text_auction']                = 'Auction';
+$_['text_opendays']                = 'Open Homes';
+$_['text_back']                = 'Back to listings';
+
 // Entry
 $_['entry_qty']                = 'Qty';
 $_['entry_name']               = 'Your Name';

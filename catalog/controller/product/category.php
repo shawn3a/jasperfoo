@@ -38,6 +38,7 @@ class ControllerProductCategory extends Controller {
 		} else {
 			$limit = $this->config->get('config_product_limit');
 		}
+		
 
 		$data['breadcrumbs'] = array();
 
@@ -45,6 +46,9 @@ class ControllerProductCategory extends Controller {
 			'text' => $this->language->get('text_home'),
 			'href' => $this->url->link('common/home')
 		);
+
+		$data['current_menu'] = $this->language->get('text_home');
+
 
 		if (isset($this->request->get['path'])) {
 			$url = '';
@@ -80,7 +84,9 @@ class ControllerProductCategory extends Controller {
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
 						'href' => $this->url->link('product/category', 'path=' . $path . $url)
+
 					);
+					$data['current_menu'] = $category_info['name'];
 				}
 			}
 		} else {
@@ -109,6 +115,10 @@ class ControllerProductCategory extends Controller {
 			$data['text_sort'] = $this->language->get('text_sort');
 			$data['text_limit'] = $this->language->get('text_limit');
 
+			$data['text_auction'] = $this->language->get('text_auction');
+			$data['text_opendays'] = $this->language->get('text_opendays');
+
+
 			$data['button_cart'] = $this->language->get('button_cart');
 			$data['button_wishlist'] = $this->language->get('button_wishlist');
 			$data['button_compare'] = $this->language->get('button_compare');
@@ -121,6 +131,8 @@ class ControllerProductCategory extends Controller {
 				'text' => $category_info['name'],
 				'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'])
 			);
+
+			$data['current_menu'] = $category_info['name'];
 
 			if ($category_info['image']) {
 				$data['thumb'] = $this->model_tool_image->resize($category_info['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
@@ -180,11 +192,20 @@ class ControllerProductCategory extends Controller {
 
 			$results = $this->model_catalog_product->getProducts($filter_data);
 
+			$img_width = $this->config->get('config_image_product_width');
+			$img_height = $this->config->get('config_image_product_height');
+
+			$img_width = 360;
+			$img_height = 320;
+
+			$data['soldimage'] = $this->model_tool_image->resize('sold.png', $img_width, $img_height);
+
+
 			foreach ($results as $result) {
 				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
+					$image = $this->model_tool_image->resize($result['image'], $img_width, $img_height);
 				} else {
-					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
+					$image = $this->model_tool_image->resize('placeholder.png', $img_width , $img_height );
 				}
 
 				if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
@@ -220,9 +241,22 @@ class ControllerProductCategory extends Controller {
 					'special'     => $special,
 					'tax'         => $tax,
 					'rating'      => $result['rating'],
+					
+					'quantity'      => $result['quantity'],
+
+					'model'   => $result['model'],
+
+					'open_days'   => $result['sku'],
+					'bathrooms'   => $result['upc'],
+					'bedrooms'    => $result['ean'],
+					'garaoges'    => $result['jan'],
+					'sittingrooms' => $result['isbn'],
+					'auction'      => $result['mpn'],
+
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
 				);
 			}
+
 
 			$url = '';
 
@@ -360,6 +394,10 @@ class ControllerProductCategory extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
+
+			$this->config->set('config_current_menu', $data['current_menu']);
+
+
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/category.tpl')) {
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/product/category.tpl', $data));

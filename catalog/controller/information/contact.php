@@ -33,6 +33,8 @@ class ControllerInformationContact extends Controller {
 			'href' => $this->url->link('information/contact')
 		);
 
+		$data['current_menu'] = $this->language->get('heading_title');
+
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_location'] = $this->language->get('text_location');
@@ -44,10 +46,15 @@ class ControllerInformationContact extends Controller {
 		$data['text_open'] = $this->language->get('text_open');
 		$data['text_comment'] = $this->language->get('text_comment');
 
+		$data['text_contact_jasper'] = $this->language->get('text_contact_jasper');
+		$data['text_requiry'] = $this->language->get('text_requiry');
+		$data['text_composory'] = $this->language->get('text_composory');
+
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_enquiry'] = $this->language->get('entry_enquiry');
 		$data['entry_captcha'] = $this->language->get('entry_captcha');
+
 
 		$data['button_map'] = $this->language->get('button_map');
 
@@ -90,10 +97,12 @@ class ControllerInformationContact extends Controller {
 		$data['store'] = $this->config->get('config_name');
 		$data['address'] = nl2br($this->config->get('config_address'));
 		$data['geocode'] = $this->config->get('config_geocode');
+		$data['store_email'] = $this->config->get('config_email');
 		$data['telephone'] = $this->config->get('config_telephone');
 		$data['fax'] = $this->config->get('config_fax');
 		$data['open'] = nl2br($this->config->get('config_open'));
 		$data['comment'] = $this->config->get('config_comment');
+
 
 		$data['locations'] = array();
 
@@ -118,7 +127,8 @@ class ControllerInformationContact extends Controller {
 					'fax'         => $location_info['fax'],
 					'image'       => $image,
 					'open'        => nl2br($location_info['open']),
-					'comment'     => $location_info['comment']
+					'comment'     => $location_info['comment'],
+					'email'     => $location_info['email']
 				);
 			}
 		}
@@ -153,6 +163,10 @@ class ControllerInformationContact extends Controller {
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
+
+		$this->config->set('config_current_menu', $data['current_menu']);
+
+
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/information/contact.tpl')) {
 			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/information/contact.tpl', $data));

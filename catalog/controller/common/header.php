@@ -20,6 +20,11 @@ class ControllerCommonHeader extends Controller {
 		$data['google_analytics'] = html_entity_decode($this->config->get('config_google_analytics'), ENT_QUOTES, 'UTF-8');
 		$data['name'] = $this->config->get('config_name');
 
+
+		$data['current_menu'] = $this->config->get('config_current_menu');
+
+
+
 		if (is_file(DIR_IMAGE . $this->config->get('config_icon'))) {
 			$data['icon'] = $server . 'image/' . $this->config->get('config_icon');
 		} else {
@@ -49,6 +54,11 @@ class ControllerCommonHeader extends Controller {
 		$data['text_checkout'] = $this->language->get('text_checkout');
 		$data['text_category'] = $this->language->get('text_category');
 		$data['text_all'] = $this->language->get('text_all');
+
+		$data['text_about'] = $this->language->get('text_about');
+		$data['text_sold'] = $this->language->get('text_sold');
+		$data['text_current'] = $this->language->get('text_current');
+		$data['text_contact'] = $this->language->get('text_contact');
 
 		$data['home'] = $this->url->link('common/home');
 		$data['wishlist'] = $this->url->link('account/wishlist', '', 'SSL');
@@ -117,10 +127,14 @@ class ControllerCommonHeader extends Controller {
 			}
 		}
 
+
 		$data['language'] = $this->load->controller('common/language');
 		$data['currency'] = $this->load->controller('common/currency');
 		$data['search'] = $this->load->controller('common/search');
 		$data['cart'] = $this->load->controller('common/cart');
+
+		//$data['contact'] = $this->load->controller('common/contact');
+
 
 		// For page specific css
 		if (isset($this->request->get['route'])) {

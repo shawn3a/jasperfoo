@@ -18,6 +18,15 @@ class ControllerCommonFooter extends Controller {
 		$data['text_wishlist'] = $this->language->get('text_wishlist');
 		$data['text_newsletter'] = $this->language->get('text_newsletter');
 
+		$data['text_quicklinks'] = $this->language->get('text_quicklinks');
+		$data['text_jasperfoo'] = $this->language->get('text_jasperfoo');
+		$data['text_licensed'] = $this->language->get('text_licensed');
+		$data['text_privacy'] = $this->language->get('text_privacy');
+		$data['text_disclaimer'] = $this->language->get('text_disclaimer');
+		$data['text_advice'] = $this->language->get('text_advice');
+		$data['text_about'] = $this->language->get('text_about');
+
+
 		$this->load->model('catalog/information');
 
 		$data['informations'] = array();
@@ -31,6 +40,11 @@ class ControllerCommonFooter extends Controller {
 			}
 		}
 
+		$data['privacy'] = $this->url->link('information/information&information_id=5');
+		$data['disclaimer'] = $this->url->link('information/information&information_id=15');
+		$data['advice'] = $this->url->link('information/information&information_id=3');
+
+		$data['about'] = $this->url->link('information/information&information_id=4');
 		$data['contact'] = $this->url->link('information/contact');
 		$data['return'] = $this->url->link('account/return/add', '', 'SSL');
 		$data['sitemap'] = $this->url->link('information/sitemap');
@@ -69,6 +83,63 @@ class ControllerCommonFooter extends Controller {
 
 			$this->model_tool_online->whosonline($ip, $this->customer->getId(), $url, $referer);
 		}
+		
+		//Categories
+		$this->load->model('catalog/category');
+
+		$this->load->model('catalog/product');
+
+		$data['categories'] = array();
+
+		$categories = $this->model_catalog_category->getCategories(0);
+
+		foreach ($categories as $category) {
+			$children_data = array();
+
+			if ($category['category_id']) {
+				$children = $this->model_catalog_category->getCategories($category['category_id']);
+
+				foreach($children as $child) {
+					$filter_data = array('filter_category_id' => $child['category_id'], 'filter_sub_category' => true);
+
+					$children_data[] = array(
+						'category_id' => $child['category_id'], 
+						'name' => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''), 
+						'href' => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
+					);
+				}
+			}
+
+			$filter_data = array(
+				'filter_category_id'  => $category['category_id'],
+				'filter_sub_category' => true
+			);
+
+			$data['quicklinks'][] = array(
+				'category_id' => $category['category_id'],
+				'name'        => $category['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+				'children'    => $children_data,
+				'href'        => $this->url->link('product/category', 'path=' . $category['category_id'])
+			);
+		}
+		//$data['quicklink'] = $data['categories']; 
+		
+		
+		//Contact from database
+		$data['store'] = $this->config->get('config_name');
+		$data['address'] = nl2br($this->config->get('config_address'));
+		$data['geocode'] = $this->config->get('config_geocode');
+		$data['email'] = $this->config->get('config_email');
+		$data['telephone'] = $this->config->get('config_telephone');
+		$data['fax'] = $this->config->get('config_fax');
+		$data['open'] = nl2br($this->config->get('config_open'));
+		$data['comment'] = $this->config->get('config_comment');
+		
+
+		
+		
+		
+		
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/footer.tpl')) {
 			return $this->load->view($this->config->get('config_template') . '/template/common/footer.tpl', $data);

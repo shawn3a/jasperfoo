@@ -5,10 +5,11 @@
     <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
     <?php foreach ($languages as $language) { ?>
     <?php if ($language['code'] == $code) { ?>
-    <img src="image/flags/<?php echo $language['image']; ?>" alt="<?php echo $language['name']; ?>" title="<?php echo $language['name']; ?>">
+    <img src="image/flags/<?php echo $language['image']; ?>" height="14" alt="<?php echo $language['name']; ?>" title="<?php echo $language['name']; ?>">
+    <span class="hidden-xs hidden-sm hidden-md"><?php echo $language['name']; ?></span>
     <?php } ?>
     <?php } ?>
-    <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_language; ?></span> <i class="fa fa-caret-down"></i></button>
+     <i class="fa fa-caret-down"></i></button>
     <ul class="dropdown-menu">
       <?php foreach ($languages as $language) { ?>
       <li><a href="<?php echo $language['code']; ?>"><img src="image/flags/<?php echo $language['image']; ?>" alt="<?php echo $language['name']; ?>" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a></li>
