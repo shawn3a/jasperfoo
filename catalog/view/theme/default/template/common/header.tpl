@@ -170,9 +170,9 @@
 
 
   <div class="container-fluid">
-  <div class="row">
-  	<img src="./image/header_without_icon-big.jpg" class="img-responsive" alt="headerimage">
-  <div class="container_head">
+    <div class="row">
+          <img src="./image/header_without_icon-big.jpg" class="img-responsive" alt="headerimage">
+    <div class="container_head">
     <div class="container">
     <div class="row">
 			
@@ -225,9 +225,8 @@
   <div class="container-fluid">
  
   <div class="row" style="background-color: #B2B2B2;padding:0px;">
-    <div class="col-sm-1"></div>
 
-    <div class="col-sm-10">
+    <div class="col-sm-10 col-sm-offset-1">
      <nav class="top-menu">
         <div class="navbar-header">
             <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -237,31 +236,20 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
            <ul class="nav navbar-nav">
 
-             <li><a href="/"><img src="http://demo.jasperfoo.co.nz/image/catalog/demo/banners/HOMEICON.jpg" alt="Home Icon" height="20" width="24"></a> <?php echo $current_menu; ?></li>
-
-              <li><a href="http://demo.jasperfoo.co.nz/index.php?route=information/information&information_id=4">|&nbsp;<?php echo $text_about; ?></a></li>
-              <?php foreach ($categories as $category) { ?>
-              <?php if ($category['children']) { ?>
-              <li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
-                <div class="dropdown-menu">
-                  <div class="dropdown-inner">
-            
-                    <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-              
-                    <ul class="list-unstyled">
-                      <?php foreach ($children as $child) { ?>
-                      <li><a href="<?php echo $child['href']; ?>">|&nbsp;<?php echo $child['name']; ?></a></li>
-                      <?php } ?>
-                    </ul>
-                    <?php } ?>
-                  </div>
-                  <a href="<?php echo $category['href']; ?>" class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a> </div>
+              <li>
+                  <a class="<?php echo $active_status['home']; ?>" href="/"><img src="./image/catalog/demo/banners/HOMEICON.jpg" alt="Home Icon" height="20" width="24"></a> <?php echo $current_menu; ?>
               </li>
-              <?php } else { ?>
-              <li><a href="<?php echo $category['href']; ?>">|&nbsp;<?php echo $category['name']; ?></a></li>
+              <li>
+                  <a class="<?php echo $active_status['about']; ?>" href="./index.php?route=information/information&information_id=4">|&nbsp;<?php echo $text_about; ?></a>
+              </li>
+              <?php foreach ($categories as $category) { ?>
+              <?php if ($category['category_id'] == $category_id) { ?>
+              <li><a href="<?php echo $category['href']; ?>" class="active"><?php echo $category['name']; ?></a></li>
+                <?php } else { ?>
+              <li><a href="<?php echo $category['href']; ?>" ><?php echo $category['name']; ?></a></li>
               <?php } ?>
               <?php } ?>
-              <li><a href="http://demo.jasperfoo.co.nz/index.php?route=information/contact">|&nbsp;<?php echo $text_contact; ?></a></li>
+              <li><a href="./index.php?route=information/contact">|&nbsp;<?php echo $text_contact; ?></a></li>
  
  <!--    <li><a class="various" href="#inline">Inline</a></li> -->
 
@@ -288,4 +276,3 @@
 
 
 </header>
-

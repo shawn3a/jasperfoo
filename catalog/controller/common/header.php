@@ -1,6 +1,7 @@
 <?php
 class ControllerCommonHeader extends Controller {
 	public function index() {
+            
 		$data['title'] = $this->document->getTitle();
 
 		if ($this->request->server['HTTPS']) {
@@ -122,7 +123,8 @@ class ControllerCommonHeader extends Controller {
 					'name'     => $category['name'],
 					'children' => $children_data,
 					'column'   => $category['column'] ? $category['column'] : 1,
-					'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
+					'href'     => $this->url->link('product/category', 'path=' . $category['category_id']),
+                                        'category_id' => $category['category_id']
 				);
 			}
 		}
@@ -133,6 +135,32 @@ class ControllerCommonHeader extends Controller {
 		$data['search'] = $this->load->controller('common/search');
 		$data['cart'] = $this->load->controller('common/cart');
 
+                // Menu active status
+                $requestGet = $this->request->get;
+                $active_status = array(
+                    'home'      =>  '',
+                    'about'     =>  '',
+                    'listing'   =>  '',
+                    'sold'      =>  ''
+                );
+
+                $data['category_id'] = $requestGet['path'];
+                if (empty($requestGet)) { 
+                    $active_status['home'] = 'active'; 
+                } elseif ($requestGet['route'] == 'information/information') {
+                    $active_status['about'] = 'active'; 
+                } elseif ($requestGet['route'] == 'product/category') {
+
+//                    if ($requestGet['path'] == '25') {
+//                        $active_status['listing'] = 'active'; 
+//                        var_dump('listing:'.$active_status['listing']); 
+//                    }
+//                    if ($requestGet['path'] == '57') {
+//                        $active_status['sold'] = 'active';
+//                        var_dump('sold:'.$active_status['sold']); 
+//                    }
+                }
+                $data['active_status'] = $active_status;
 		//$data['contact'] = $this->load->controller('common/contact');
 
 

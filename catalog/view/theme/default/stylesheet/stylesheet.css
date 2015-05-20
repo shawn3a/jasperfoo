@@ -899,11 +899,10 @@ footer {
 footer .container {
 	background-color: #1F201F;
 	color: #606060;
-
 }
 
 ul.nav.navbar-nav a {
-font-size: 17px;
+font-size: 14px;
 color: #ffffff;
 }
 
@@ -1180,4 +1179,8 @@ a {
 .img-sold {
 	position: absolute;
 	top: 0px;
+}
+
+ul.nav.navbar-nav a.active {
+    color: #003C76;
 }
