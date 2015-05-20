@@ -1,5 +1,5 @@
 <div id="contact-box" class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-    <div class="cancal glyphicon glyphicon-remove-circle"></div>
+    <div class="glyphicon glyphicon-remove-circle cancal" id="contact-cancel"></div>
     <div class="row">
         <h3><span style="color:#F0F0F0;">CONTACT</span></h3>
         <h4><span style="color:#F0F0F0;"><?php echo $text_contact_jasper; ?><br>

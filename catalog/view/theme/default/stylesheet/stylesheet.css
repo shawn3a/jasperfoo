@@ -1177,6 +1177,10 @@ ul.nav.navbar-nav a.active {
     color: #003C76;
 }
 
+ul.nav.navbar-nav a.active.tmp-disable {
+    color: #fff;
+}
+
 .footer-company {
     padding-top: 14px;
 }
@@ -1198,6 +1202,7 @@ footer ul.quick-links {
     bottom: 0;
     z-index: 999;
     background-color: rgba(0, 0, 0, 0.5);
+    display: none;
 }
 
 #contact-box {
@@ -1205,6 +1210,22 @@ footer ul.quick-links {
     background-position: center;
     background-repeat: repeat;
     margin-top: 200px;
+}
+
+header.show-contact .cover-content {
+    display: block;
+}
+
+#contact-link {
+    cursor: pointer;
+}
+
+header.show-contact #contact-link {
+    color: #003C76;
+}
+
+#contact-cancel {
+    display: block;
 }
 
 #contact-box .cancal {

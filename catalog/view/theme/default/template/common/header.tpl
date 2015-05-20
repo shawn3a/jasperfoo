@@ -249,7 +249,7 @@
               <li><a href="<?php echo $category['href']; ?>" ><?php echo $category['name']; ?></a></li>
               <?php } ?>
               <?php } ?>
-              <li><a href="./index.php?route=information/contact">|&nbsp;<?php echo $text_contact; ?></a></li>
+              <li><a id="contact-link">|&nbsp;<?php echo $text_contact; ?></a></li>
  
  <!--    <li><a class="various" href="#inline">Inline</a></li> -->
 
