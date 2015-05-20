@@ -143,14 +143,15 @@ class ControllerCommonHeader extends Controller {
                     'listing'   =>  '',
                     'sold'      =>  ''
                 );
-
-                $data['category_id'] = $requestGet['path'];
+                
+                $data['category_id'] = key_exists('path', $requestGet) ? $requestGet['path'] : '';
+                
                 if (empty($requestGet)) { 
                     $active_status['home'] = 'active'; 
                 } elseif ($requestGet['route'] == 'information/information') {
                     $active_status['about'] = 'active'; 
                 } elseif ($requestGet['route'] == 'product/category') {
-
+                      
 //                    if ($requestGet['path'] == '25') {
 //                        $active_status['listing'] = 'active'; 
 //                        var_dump('listing:'.$active_status['listing']); 
