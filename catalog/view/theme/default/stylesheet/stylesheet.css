@@ -1202,7 +1202,8 @@ footer ul.quick-links {
     bottom: 0;
     z-index: 999;
     background-color: rgba(0, 0, 0, 0.5);
-    display: none;
+/*    display: none;*/
+    display: block;
 }
 
 #contact-box {
@@ -1231,7 +1232,59 @@ header.show-contact #contact-link {
 #contact-box .cancal {
     float: right;
     font-size: 50px;
-    color: #fff;
-    padding: 20px;
     cursor: pointer;
+}
+
+#contact-box h3 {
+    color: #fff;
+}
+
+#contact-box {
+    color: #fff;
+    padding: 20px 30px;
+}
+
+#contact-box .form-control {
+    border-radius: 0;
+}
+
+#contact-box .row {
+    margin: 0px;
+}
+
+.clear-outer {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    border: 0px 0px 0px 0px;
+}
+
+#contact-box h3 {
+    padding: 0px;
+}
+
+#contact-box .form-group {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 15px;
+}
+
+#contact-box .btn {
+    border-radius: 0px;
+    height: 50px;
+    width: 80px;
+    background-color: #fff;
+    text-transform: uppercase;
+}
+
+#contact-box .contact-logo {
+    background-image: url('/image/contact_logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100%;
+    height: 50px;
+}
+
+#contact-box .contact-info {
+    padding-top: 160px;
 }

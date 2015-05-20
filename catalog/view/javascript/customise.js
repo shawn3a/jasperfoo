@@ -14,10 +14,12 @@
     $contactLink.click(function(){
         $('header').addClass('show-contact');
         $links.addClass('tmp-disable');
+        $('body').css('overflow', 'hidden');
     });
     
     $contactCancel.click(function(){
         $('header').removeClass('show-contact');
         $links.removeClass('tmp-disable');
+        $('body').css('overflow', 'auto');
     });
 })(jQuery);
