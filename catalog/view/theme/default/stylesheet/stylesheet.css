@@ -4,7 +4,7 @@ body {
 	color: #666;
 	font-size: 12px;
 	line-height: 20px;
-	background: url("http://demo.jasperfoo.co.nz/image/background.jpg") repeat scroll 0% 0% transparent;	
+	background: url("/image/background.jpg") repeat scroll 0% 0% transparent;	
 }
 
 .contact_bg {
@@ -356,13 +356,17 @@ div.required .control-label:before {
 /* footer */
 footer {
 	width:100%;
-	background-color: #ffffff;
 /*	background-color: #565143; */
-	color: #D7D7D7;
-    border-top: 10px solid ;
-    border-top-color: #ffffff;
-
+	color: #757575;
+        background-color: transparent;
+        padding-top: 10px;
+        padding-bottom: 50px;
 }
+
+footer div {
+    background-color: transparent;
+}
+
 footer hr {
 	border-top: none;
 	border-bottom: 1px solid #666;
@@ -889,17 +893,6 @@ border-bottom: 1px dotted #DDDDDD;
 margin-bottom: 0px;
 }
 
-
-footer {
-	width:100%;
-	background-color: #ffffff;
-	color: #606060;
-
-}
-footer .container {
-	background-color: #1F201F;
-	color: #606060;
-}
 
 ul.nav.navbar-nav a {
 font-size: 14px;

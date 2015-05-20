@@ -1,5 +1,5 @@
-<footer style="height:215">
-  <div class="container-fluid" style="background-color:white">
+<footer>
+  <div class="container-fluid">
 
     <div class="row">
      <div class="col-sm-5 col-sm-offset-1 footer-company">
