@@ -180,8 +180,10 @@ class ControllerCommonHeader extends Controller {
 			$data['class'] = str_replace('/', '-', $this->request->get['route']) . $class;
 		} else {
 			$data['class'] = 'common-home';
-		}
-
+		} 
+                
+                $data['contact_box'] = $this->load->controller('information/contact');
+                
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/header.tpl')) {
 			return $this->load->view($this->config->get('config_template') . '/template/common/header.tpl', $data);
 		} else {

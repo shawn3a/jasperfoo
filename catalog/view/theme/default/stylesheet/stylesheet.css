@@ -839,7 +839,6 @@ header .container {
 }
 
 header .container_head {
-  /* 	background: url("http://demo.jasperfoo.co.nz/image/header_container_bg.jpg") no-repeat; */
   	position: absolute;
   	top:0px;
   	width:100%;
@@ -1189,4 +1188,29 @@ footer address {
 footer ul.quick-links {
     margin-bottom: 0px;
     padding-top: 3px;
+}
+
+.cover-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#contact-box {
+    background-image: url("/image/contact_bg.png");
+    background-position: center;
+    background-repeat: repeat;
+    margin-top: 200px;
+}
+
+#contact-box .cancal {
+    float: right;
+    font-size: 50px;
+    color: #fff;
+    padding: 20px;
+    cursor: pointer;
 }

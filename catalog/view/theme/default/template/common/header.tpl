@@ -273,6 +273,8 @@
 
   </div>
 </div>
-
+<div class="cover-content">
+    <?php echo $contact_box; ?>
+</div>
 
 </header>
