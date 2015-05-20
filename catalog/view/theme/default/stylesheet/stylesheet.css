@@ -1184,3 +1184,16 @@ a {
 ul.nav.navbar-nav a.active {
     color: #003C76;
 }
+
+.footer-company {
+    padding-top: 14px;
+}
+
+footer address {
+    margin-bottom: 9px;
+}
+
+footer ul.quick-links {
+    margin-bottom: 0px;
+    padding-top: 3px;
+}

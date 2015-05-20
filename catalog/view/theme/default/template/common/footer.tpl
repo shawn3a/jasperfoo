@@ -2,13 +2,10 @@
   <div class="container-fluid" style="background-color:white">
 
     <div class="row">
-     <div class="col-sm-1"></div>
-     <div class="col-sm-5">
- 	           <div id="footerlogo" >
-                      <a href="http://demo.jasperfoo.co.nz/index.php?route=common/home"><img src="http://demo.jasperfoo.co.nz/image/catalog/logo.png" title="Your Store" alt="Your Store" class="img-responsive"></a>
-                  </div>
-                  <br>
-
+     <div class="col-sm-5 col-sm-offset-1 footer-company">
+                <div id="footerlogo" >
+                   <a href="http://demo.jasperfoo.co.nz/index.php?route=common/home"><img src="http://demo.jasperfoo.co.nz/image/catalog/logo.png" title="Your Store" alt="Your Store" class="img-responsive"></a>
+               </div>
                 <p><?php echo $text_jasperfoo; ?><br> 
                 <?php echo $text_licensed; ?>
                 |<a href="<?php echo $privacy; ?>"><?php echo $text_privacy; ?></a>
@@ -53,10 +50,10 @@
 	       
 	  
 	  
-      <div class="col-sm-3" style="border-left: 4px solid #A5A5A5;">
+      <div class="col-sm-3" style="border-left: 4px solid #A5A5A5; height: 113px;">
         <!--<h5><?php echo $text_information; ?></h5>-->
 		<h5><?php echo $text_quicklinks; ?></h5>
-        <ul class="list-unstyled">
+        <ul class="list-unstyled quick-links">
           <li><a href="<?php echo $about; ?>"><?php echo $text_about; ?></a></li>
 
           <?php foreach ($quicklinks as $quicklink) { ?>
