@@ -134,9 +134,9 @@
               </li>
               <?php foreach ($categories as $category) { ?>
               <?php if ($category['category_id'] == $category_id) { ?>
-              <li><a href="<?php echo $category['href']; ?>" class="active"><?php echo $category['name']; ?></a></li>
+              <li><a href="<?php echo $category['href']; ?>" class="active">|&nbsp;<?php echo $category['name']; ?></a></li>
                 <?php } else { ?>
-              <li><a href="<?php echo $category['href']; ?>" ><?php echo $category['name']; ?></a></li>
+              <li><a href="<?php echo $category['href']; ?>" >|&nbsp;<?php echo $category['name']; ?></a></li>
               <?php } ?>
               <?php } ?>
               <li><a id="contact-link">|&nbsp;<?php echo $text_contact; ?></a></li>
