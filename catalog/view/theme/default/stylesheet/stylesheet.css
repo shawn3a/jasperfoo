@@ -1300,3 +1300,15 @@ header.show-contact #contact-link {
 h4.black-content {
 	font-weight: bold;
 }
+
+.back-link {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+
+.back-link a {
+	font-size: 26px;
+	font-family: serif;
+	color: #757575;
+}

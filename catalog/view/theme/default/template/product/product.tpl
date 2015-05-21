@@ -71,14 +71,10 @@
                     <ul class="list-unstyled">
                         <li><h4> <?php echo $description; ?></h4></li>
                     </ul>
-
                 </div>
-            </div>
-        </div>
-        <div class="row" style=" height:30px; text-align:right;">
-            <div class="col-sm-11">
-                <a style="font-size:18px;color:#606060;"
-                   href="javascript: window.history.go(-1);"><?php echo $text_back; ?></a>
+                <div class="back-link col-sm-6">
+                    <a class="pull-right" href="javascript:history.go(-1);">Back to listings</a>
+                </div>
             </div>
         </div>
     </div>
