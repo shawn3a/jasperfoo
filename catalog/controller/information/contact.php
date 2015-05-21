@@ -14,6 +14,8 @@ class ControllerInformationContact extends Controller {
                 $mail->setText(strip_tags($this->request->post['enquiry']));
 
                 $mail->send();
+
+                $this->response->redirect($this->url->link('common/home'));
             }
         }
 
