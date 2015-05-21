@@ -29,31 +29,10 @@
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
 
-
 <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
 
-<!-- FancyBox related js start -------------------------------->
-<!-- Add jQuery library -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-<!-- Add mousewheel plugin (this is optional) -->
-<script type="text/javascript" src="catalog/view/javascript/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
-
-<!-- Add fancyBox -->
-<link rel="stylesheet" href="catalog/view/javascript/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-<script type="text/javascript" src="catalog/view/javascript/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-<!-- Optionally add helpers - button, thumbnail and/or media -->
-<link rel="stylesheet" href="catalog/view/javascript/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
-<script type="text/javascript" src="catalog/view/javascript/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-<script type="text/javascript" src="catalog/view/javascript/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
-
-<link rel="stylesheet" href="catalog/view/javascript/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
-<script type="text/javascript" src="catalog/view/javascript/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-
-
-<!-- FancyBox related js end -------------------------------->
-
+<link href="catalog/view/javascript/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+<script src="catalog/view/javascript/fancybox/source/jquery.fancybox.js" type="text/javascript"></script>
 
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
@@ -64,103 +43,15 @@
 <?php } ?>
 
 <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".fancybox").fancybox();
+    });
+</script>
 </head>
 <body class="<?php echo $class; ?>">
 
-<!-- FancyBox related js start -------------------------------->
-   <script type="text/javascript"> 
-    $(".fancybox").fancybox({
-      openEffect  : 'none',
-      closeEffect : 'none'
-    });
-  </script>
-
- <script type="text/javascript"> 
-  $(".fancybox-thumb").fancybox({
-    prevEffect  : 'none',
-    nextEffect  : 'none',
-    helpers : {
-      title : {
-        type: 'outside'
-      },
-      thumbs  : {
-        width : 50,
-        height  : 50
-      }
-    }
-  });
-</script>
-
- <script type="text/javascript"> 
-  $(".fancybox-button").fancybox({
-    prevEffect    : 'none',
-    nextEffect    : 'none',
-    closeBtn    : false,
-    helpers   : {
-      title : { type : 'inside' },
-      buttons : {}
-    }
-  });
-</script>
-
- <script type="text/javascript"> 
-  $(".fancybox-button").fancybox({
-    prevEffect    : 'none',
-    nextEffect    : 'none',
-    closeBtn    : false,
-    helpers   : {
-      title : { type : 'inside' },
-      buttons : {}
-    }
-  });
-</script>
-
-<!-- Various types Ajax Iframe Inline SWF Youtube(iframe) Google map (iframe Non-existing url related js -------------------------------->
-<!-- html code --
-  <ul class="list">
-  <li>
-    <a class="various fancybox.ajax" href="/demo/ajax.php">Ajax</a>
-  </li>
-  <li>
-    <a class="various" data-fancybox-type="iframe" href="/demo/iframe.html">Iframe</a>
-  </li>
-  <li>
-    <a class="various" href="#inline">Inline</a>
-  </li>
-  <li>
-    <a class="various" href="http://www.adobe.com/jp/events/cs3_web_edition_tour/swfs/perform.swf">SWF</a>
-  </li>
-</ul>
-
-<ul class="list">
-  <li>
-    <a class="various fancybox.iframe" href="http://www.youtube.com/embed/L9szn1QQfas?autoplay=1">Youtube (iframe)</a>
-  </li>
-  <li>
-    <a class="various fancybox.iframe" href="http://maps.google.com/?output=embed&f=q&source=s_q&hl=en&geocode=&q=London+Eye,+County+Hall,+Westminster+Bridge+Road,+London,+United+Kingdom&hl=lv&ll=51.504155,-0.117749&spn=0.00571,0.016512&sll=56.879635,24.603189&sspn=10.280244,33.815918&vpsrc=6&hq=London+Eye&radius=15000&t=h&z=17">Google maps (iframe)</a>
-  </li>
-  <li>
-    <a class="various" href="/data/non_existing_image.jpg">Non-existing url</a>
-  </li>
-</ul>
--------------------------------------------->
-<script type="text/javascript"> 
-
-  $(".various").fancybox({
-    maxWidth  : 800,
-    maxHeight : 600,
-    fitToView : false,
-    width   : '70%',
-    height    : '70%',
-    autoSize  : false,
-    closeClick  : false,
-    openEffect  : 'none',
-    closeEffect : 'none'
-  });
-
-</script>
-
-<!-- FancyBox related js end -------------------------------->
 
 <header>
 <div id="inline" style="display:none;width:500px;">

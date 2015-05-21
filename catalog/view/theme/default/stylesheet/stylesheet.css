@@ -1201,7 +1201,7 @@ footer ul.quick-links {
     right: 0;
     bottom: 0;
     z-index: 999;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     display: none;
 }
 
