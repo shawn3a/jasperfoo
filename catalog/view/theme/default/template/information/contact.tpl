@@ -8,12 +8,11 @@
     </div>
     <div class="row">
         <div class="col-sm-8 clear-outer">
+
             <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data"
-                  class="form-horizontal">
-                    <!--<h3><?php echo $text_contact; ?></h3>-->
+                  class="form-horizontal" id="contact-form" data-toggle="validator" role="form">
                     <div class="form-group clear-outer required">
-                        <input type="text" name="email" value="<?php echo $email; ?>" id="input-email"
-                               class="form-control" placeholder="Your email address*"/>
+                        <input type="email" name="email" value="<?php echo $email; ?>" id="input-email" class="form-control" placeholder="Your email address*" required>
                         <?php if ($error_email) { ?>
                         <div class="text-danger"><?php echo $error_email; ?></div>
                         <?php } ?>
@@ -26,15 +25,14 @@
                         <?php } ?>
                     </div>
                     <div class="form-group clear-outer required">
-                        <textarea name="enquiry" rows="10" id="input-enquiry" class="form-control"
-                                  placeholder="Your Message*"><?php echo $enquiry; ?></textarea>
+                        <textarea name="enquiry" rows="10" id="input-enquiry" class="form-control" placeholder="Your Message*" required><?php echo $enquiry; ?></textarea>
                         <?php if ($error_enquiry) { ?>
                         <div class="text-danger"><?php echo $error_enquiry; ?></div>
                         <?php } ?>
                     </div>
                 <div class="buttons">
                     <div class="pull-right" style="min-height:40px;">
-                        <input class="btn " style="color:#606060;" type="submit"
+                        <input class="btn " style="color:#606060;" type="submit" id="contact-submit"
                                value="<?php echo $button_submit; ?>"/>
                     </div>
                 </div>
@@ -57,5 +55,4 @@
             </div>
         </div>
     </div>
-
 </div>

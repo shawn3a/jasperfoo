@@ -2,24 +2,24 @@
 class ControllerInformationContact extends Controller {
 	private $error = array();
 
-	public function index() {
+        public function submit() {
+            if ($this->request->server['REQUEST_METHOD'] == 'POST') {
+
+                $mail = new Mail($this->config->get('config_mail'));
+
+                $mail->setTo($this->config->get('config_email'));
+                $mail->setFrom($this->request->post['email']);
+                $mail->setSender($this->request->post['name']);
+                $mail->setSubject(sprintf($this->language->get('email_subject'), $this->request->post['name']));
+                $mail->setText(strip_tags($this->request->post['enquiry']));
+
+                $mail->send();
+            }
+        }
+
+        public function index() {
 		$this->load->language('information/contact');
-
 		$this->document->setTitle($this->language->get('heading_title'));
-
-		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-			unset($this->session->data['captcha']);
-
-			$mail = new Mail($this->config->get('config_mail'));
-			$mail->setTo($this->config->get('config_email'));
-			$mail->setFrom($this->request->post['email']);
-			$mail->setSender($this->request->post['name']);
-			$mail->setSubject(sprintf($this->language->get('email_subject'), $this->request->post['name']));
-			$mail->setText(strip_tags($this->request->post['enquiry']));
-			$mail->send();
-
-			$this->response->redirect($this->url->link('information/contact/success'));
-		}
 
 		$data['breadcrumbs'] = array();
 
@@ -53,7 +53,7 @@ class ControllerInformationContact extends Controller {
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_enquiry'] = $this->language->get('entry_enquiry');
-		$data['entry_captcha'] = $this->language->get('entry_captcha');
+//		$data['entry_captcha'] = $this->language->get('entry_captcha');
 
 
 		$data['button_map'] = $this->language->get('button_map');
@@ -76,15 +76,15 @@ class ControllerInformationContact extends Controller {
 			$data['error_enquiry'] = '';
 		}
 
-		if (isset($this->error['captcha'])) {
-			$data['error_captcha'] = $this->error['captcha'];
-		} else {
-			$data['error_captcha'] = '';
-		}
+//		if (isset($this->error['captcha'])) {
+//			$data['error_captcha'] = $this->error['captcha'];
+//		} else {
+//			$data['error_captcha'] = '';
+//		}
 
 		$data['button_submit'] = $this->language->get('button_submit');
 
-		$data['action'] = $this->url->link('information/contact');
+		$data['action'] = $this->url->link('information/contact/submit');
 
 		$this->load->model('tool/image');
 
@@ -151,16 +151,16 @@ class ControllerInformationContact extends Controller {
 			$data['enquiry'] = '';
 		}
 
-		if (isset($this->request->post['captcha'])) {
-			$data['captcha'] = $this->request->post['captcha'];
-		} else {
-			$data['captcha'] = '';
-		}
-
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
+//		if (isset($this->request->post['captcha'])) {
+//			$data['captcha'] = $this->request->post['captcha'];
+//		} else {
+//			$data['captcha'] = '';
+//		}
+//
+//		$data['column_left'] = $this->load->controller('common/column_left');
+//		$data['column_right'] = $this->load->controller('common/column_right');
+//		$data['content_top'] = $this->load->controller('common/content_top');
+//		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 
 		$this->config->set('config_current_menu', $data['current_menu']);
 
@@ -213,21 +213,22 @@ class ControllerInformationContact extends Controller {
 	}
 
 	protected function validate() {
+
 		if ((utf8_strlen($this->request->post['name']) < 3) || (utf8_strlen($this->request->post['name']) > 32)) {
 			$this->error['name'] = $this->language->get('error_name');
 		}
-
+            
 		if (!preg_match('/^[^\@]+@.*.[a-z]{2,15}$/i', $this->request->post['email'])) {
 			$this->error['email'] = $this->language->get('error_email');
 		}
 
-		if ((utf8_strlen($this->request->post['enquiry']) < 10) || (utf8_strlen($this->request->post['enquiry']) > 3000)) {
+		if ((utf8_strlen($this->request->post['enquiry']) < 1) || (utf8_strlen($this->request->post['enquiry']) > 3000)) {
 			$this->error['enquiry'] = $this->language->get('error_enquiry');
 		}
 
-		if (empty($this->session->data['captcha']) || ($this->session->data['captcha'] != $this->request->post['captcha'])) {
-			$this->error['captcha'] = $this->language->get('error_captcha');
-		}
+//		if (empty($this->session->data['captcha']) || ($this->session->data['captcha'] != $this->request->post['captcha'])) {
+//			$this->error['captcha'] = $this->language->get('error_captcha');
+//		}
 
 		return !$this->error;
 	}

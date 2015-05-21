@@ -52,7 +52,6 @@
 <script type="text/javascript" src="catalog/view/javascript/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
 
-
 <!-- FancyBox related js end -------------------------------->
 
 

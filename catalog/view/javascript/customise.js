@@ -9,7 +9,9 @@
         $cover = $('.cover-content'),
         $contactBox = $('#contact-box'),
         $contactCancel = $('#contact-cancel'),
-        $links = $('header ul.nav.navbar-nav a');
+        $links = $('header ul.nav.navbar-nav a'),
+        $contactForm = $('#contact-form'),
+        $contactSubmit = $('#contact-submit');
         
     $contactLink.click(function(){
         $('header').addClass('show-contact');
@@ -21,5 +23,10 @@
         $('header').removeClass('show-contact');
         $links.removeClass('tmp-disable');
         $('body').css('overflow', 'auto');
+    });
+    
+    $contactSubmit.click(function(e){
+
+        
     });
 })(jQuery);
