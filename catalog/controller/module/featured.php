@@ -77,11 +77,12 @@ class ControllerModuleFeatured extends Controller {
 							$rating = false;
 						}
 */
+                                                $max_length = 100;
 						$data['products'][] = array(
 							'product_id'  => $product_info['product_id'],
 							'thumb'       => $image,
 							'name'        => $product_info['name'],
-							'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('config_product_description_length')) . '..',
+							'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $max_length) . '..',
 							'quantity'       => $product_info['quantity'],
 						/*	'price'       => $price,
 							'special'     => $special,
@@ -104,7 +105,7 @@ class ControllerModuleFeatured extends Controller {
 						    
 							'product_id'  => $product_info['product_id'],
 							 'name'        => $product_info['name'],
-							 'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('config_product_description_length')) . '..',
+							 'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $max_length) . '..',
 							 'thumb'       => $image, 
 							 'quantity'  => $product_info['quantity'],
 						

@@ -594,8 +594,7 @@ footer h5 {
 	opacity: 0.8;
 }
 .product-thumb .image img {
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 0;
 }
 .product-grid .product-thumb .image {
 	float: none;
@@ -1171,6 +1170,8 @@ a {
 .img-sold {
 	position: absolute;
 	top: 0px;
+	left: 0px;
+	height: 100%;
 }
 
 ul.nav.navbar-nav a.active {
@@ -1286,4 +1287,16 @@ header.show-contact #contact-link {
 
 #contact-box .contact-info {
     padding-top: 160px;
+}
+
+.black-content {
+	color: #000;
+}
+
+.blue-link {
+	color: #003C76;
+}
+
+h4.black-content {
+	font-weight: bold;
 }
