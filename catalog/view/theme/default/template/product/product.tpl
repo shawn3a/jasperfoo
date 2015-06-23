@@ -31,7 +31,7 @@
                     </ul>
                     <?php } ?>
                 </div>
-                <div class="col-sm-6 col-xs-12">
+                <div class="col-sm-6 col-xs-12" style="font-family: Arial, Helvetica, sans-serif; color: #000;">
 
                     <h2><?php echo $heading_title; ?></h2>
                     <ul class="list-unstyled">

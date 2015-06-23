@@ -54,10 +54,6 @@
 
 
 <header>
-<div id="inline" style="display:none;width:500px;">
-  <?php echo $language; ?>
-</div>
-
 
   <div class="container-fluid">
     <div class="row">
@@ -80,27 +76,28 @@
         <div class="col-sm-6 col-xs-10" >
            <div class="row">
 
-               <div class="pull-right" style="margin-top:-8px;">
-             <!--  <?php echo $currency; ?>-->
-               <?php echo $language; ?>&nbsp;&nbsp;
-               </div>
 
-               <div class="pull-right" >
+               <div class="pull-right" style="margin-top: 10px; margin-right: 30px;">
+                   
+                    <div class="pull-right" >
+                        <!--  <?php echo $currency; ?>-->
+                    <?php echo $language; ?>
+                    </div>
                 
-                  <ul class="list-inline">
-              
-                     <li>
-                        <a href="#">
-                          <img src="./image/facebookicon.jpg" style="height:26px;" class="img-responsive" alt="facebook"> 
-                       </a>
-                     </li> 
-                     <li>
-                        <a href="#">
-                          <img src="./image/linkinicon.jpg" style="height:26px;" class="img-responsive" alt="facebook"> 
-                        </a>
-                    </li>
-                    
-                 </ul>
+                    <div class="pull-right">
+
+                       <div class="col-sm-6">
+                          <a href="#">
+                            <img src="./image/facebookicon.jpg" style="height:26px;" class="img-responsive" alt="facebook"> 
+                         </a>
+                       </div> 
+                       <div class="col-sm-6">
+                          <a href="#">
+                            <img src="./image/linkinicon.jpg" style="height:26px;" class="img-responsive" alt="facebook"> 
+                          </a>
+                      </div>
+
+                   </div>
                   
                 </div>
            </div>

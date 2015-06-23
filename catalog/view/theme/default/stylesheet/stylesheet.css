@@ -1324,3 +1324,31 @@ h4.black-content {
 .fancybox:nth-child(1) {
     padding: 0px !important;
 }
+
+.language-option a:hover {
+    color: #ccc;
+}
+
+.language-option a {
+    color: #fff;
+}
+
+.language-option {
+    float: left; 
+    display: block;
+    padding: 0 5px;
+    font-size: 10px;
+    text-transform: uppercase;
+    box-sizing: content-box;
+}
+
+.language-option:not(:last-of-type) {
+    border-right: 1px solid #ffffff;
+}
+
+.languages {
+    display: block;
+    float: left;
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
