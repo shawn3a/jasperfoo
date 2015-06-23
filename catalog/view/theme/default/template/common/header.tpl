@@ -57,7 +57,9 @@
 
   <div class="container-fluid">
     <div class="row">
+        <a href="/" >
           <img src="./image/header_without_icon-big.jpg" class="img-responsive" alt="headerimage">
+        </a>
     <div class="container_head">
     <div class="container">
     <div class="row">
@@ -86,12 +88,12 @@
                 
                     <div class="pull-right">
 
-                       <div class="col-sm-6">
+                       <div class="col-sm-6 social-container">
                           <a href="#">
                             <img src="./image/facebookicon.jpg" style="height:26px;" class="img-responsive" alt="facebook"> 
                          </a>
                        </div> 
-                       <div class="col-sm-6">
+                       <div class="col-sm-6 social-container" >
                           <a href="#">
                             <img src="./image/linkinicon.jpg" style="height:26px;" class="img-responsive" alt="facebook"> 
                           </a>

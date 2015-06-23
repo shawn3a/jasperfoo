@@ -1352,3 +1352,7 @@ h4.black-content {
     padding-left: 0px;
     margin-bottom: 0px;
 }
+
+.social-container {
+    padding: 0 5px;
+}

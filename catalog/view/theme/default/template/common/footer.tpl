@@ -50,7 +50,7 @@
 	       
 	  
 	  
-      <div class="col-sm-3" style="border-left: 4px solid #A5A5A5; height: 113px;">
+      <div class="col-sm-3" style="border-left: 2px solid #A5A5A5; height: 113px;">
         <!--<h5><?php echo $text_information; ?></h5>-->
 		<h5><?php echo $text_quicklinks; ?></h5>
         <ul class="list-unstyled quick-links">
