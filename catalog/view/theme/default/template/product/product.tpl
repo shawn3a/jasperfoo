@@ -4,13 +4,13 @@
         <div id="content" style="background-color:rgba(255, 255, 255, 0.4);min-height:500px;"
              class="col-sm-10 col-sm-offset-1"><?php echo $content_top; ?>
             <div class="row">
-                <div class="col-sm-6 col-xs-12">
+                <div class="col-sm-6 col-xs-12" style="padding:0;">
                     <?php if ($thumb || $images) { ?>
-                    <ul class="thumbnails">
+                    <ul class="col-sm-12" style="padding:0;">
                         <?php if ($thumb) { ?>
-                            <a class="feature-img-container col-sm-12 fancybox" href="<?php echo $popup; ?>" rel="group"
+                            <a class="feature-img-container col-sm-12 fancybox" style="padding:0; margin: 20px 0;" href="<?php echo $popup; ?>" rel="group"
                                    title="<?php echo $heading_title; ?>">
-                                <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>"
+                                <img class="col-sm-12" src="<?php echo $thumb; ?>" style="padding:0;" title="<?php echo $heading_title; ?>"
                                      alt="<?php echo $heading_title; ?>"/>
 
                                 <?php if($quantity <= 0) { ?>
@@ -23,8 +23,8 @@
 
                         <?php if ($images) { ?>
                         <?php foreach ($images as $image) { ?>
-                            <a class="fancybox col-sm-6" rel="group" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>">
-                                <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"/>
+                            <a class="fancybox col-sm-6" style="padding:0; margin: 10px 0;" rel="group" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>">
+                                <img class="col-sm-12" style="padding:0;" src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"/>
                             </a>
                         <?php } ?>
                         <?php } ?>

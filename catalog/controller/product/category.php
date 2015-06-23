@@ -195,8 +195,8 @@ class ControllerProductCategory extends Controller {
 			$img_width = $this->config->get('config_image_product_width');
 			$img_height = $this->config->get('config_image_product_height');
 
-			$img_width = 360;
-			$img_height = 320;
+			$img_width = 363;
+			$img_height = 300;
 
 			$data['soldimage'] = $this->model_tool_image->resize('sold.png', $img_width, $img_height);
 

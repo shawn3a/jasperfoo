@@ -1312,3 +1312,15 @@ h4.black-content {
 	font-family: serif;
 	color: #757575;
 }
+
+.fancybox:nth-child(odd) {
+    padding-left: 10px !important;
+}
+
+.fancybox:nth-child(even) {
+    padding-right: 10px !important;
+}
+
+.fancybox:nth-child(1) {
+    padding: 0px !important;
+}
