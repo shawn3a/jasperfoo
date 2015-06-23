@@ -4,7 +4,7 @@
         <h3 class="text-left"><?php echo $heading_title; ?> </h3>
         <div class="row">
             <?php foreach ($products as $product) { ?>
-            <div class="col-sm-12 col-md-6" >
+            <div class="col-sm-12 col-md-6" style="margin-bottom: 10px;">
                 <div class="col-sm-6">
                     <a class='feature-img-container' href="<?php echo $product['href']; ?>">
                         <img src="<?php echo $product['thumb']; ?>"
