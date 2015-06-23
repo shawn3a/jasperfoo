@@ -46,7 +46,18 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $(".fancybox").fancybox();
+        $(".fancybox").fancybox({
+            afterLoad: function() {
+                this.title = 'PHOTO ' + (this.index + 1) + ' OF ' + this.group.length ;
+            },
+            
+            helpers : {
+                title : {
+                        type : 'inside'
+                }
+            }
+            
+        });
     });
 </script>
 </head>
