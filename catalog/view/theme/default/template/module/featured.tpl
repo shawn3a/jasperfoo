@@ -1,11 +1,11 @@
 <!-- <?php echo $heading_title; ?></h3>  Featured from database  -->
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1" style="text-align:center;background-color:#F1F2F2;">
-        <h3 class="text-left"><?php echo $heading_title; ?> </h3>
-        <div class="row">
+        <h3 class="text-left" style="padding:0;"><?php echo $heading_title; ?> </h3>
+        <div class="row" style="padding-bottom: 20px;">
             <?php foreach ($products as $product) { ?>
             <div class="col-sm-12 col-md-6" style="margin-bottom: 10px;">
-                <div class="col-sm-6">
+                <div class="col-sm-6" style="padding: 0;">
                     <a class='feature-img-container' href="<?php echo $product['href']; ?>">
                         <img src="<?php echo $product['thumb']; ?>"
                              alt="<?php echo $product['name']; ?>"
