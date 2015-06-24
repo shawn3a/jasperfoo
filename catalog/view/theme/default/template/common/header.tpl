@@ -101,12 +101,12 @@
 
                        <div class="col-sm-6 social-container">
                           <a href="#">
-                            <img src="./image/facebookicon.jpg" style="height:26px;" class="img-responsive" alt="facebook"> 
+                            <img src="./image/facebookicon.png" style="height:26px;" class="img-responsive" alt="facebook"> 
                          </a>
                        </div> 
                        <div class="col-sm-6 social-container" >
                           <a href="#">
-                            <img src="./image/linkinicon.jpg" style="height:26px;" class="img-responsive" alt="facebook"> 
+                            <img src="./image/linkedinicon.png" style="height:26px;" class="img-responsive" alt="linkin"> 
                           </a>
                       </div>
 
@@ -137,7 +137,7 @@
            <ul class="nav navbar-nav">
 
               <li>
-                  <a class="<?php echo $active_status['home']; ?>" href="/"><img src="./image/catalog/demo/banners/HOMEICON.jpg" alt="Home Icon" height="20" width="24"></a> <?php echo $current_menu; ?>
+                  <a class="<?php echo $active_status['home']; ?>" href="/"><i class="fa fa-home" style="font-size: 18px;"></i></a> <?php echo $current_menu; ?>
               </li>
               <li>
                   <a class="<?php echo $active_status['about']; ?>" href="./index.php?route=information/information&information_id=4">|&nbsp;<?php echo $text_about; ?></a>
