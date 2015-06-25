@@ -1,6 +1,15 @@
 <?php
 class ControllerProductCategory extends Controller {
-	public function index() {
+    /**
+     * Category id of current listing and sold property
+     */
+    const CURRENT_ID = 25;
+    const SOLD_ID = 57;
+    
+    const CRRENT_TPL_NAME = 'category';
+    const SOLD_TPL_NAME = 'category';
+
+    public function index() {
 		$this->load->language('product/category');
 
 		$this->load->model('catalog/category');
@@ -195,8 +204,8 @@ class ControllerProductCategory extends Controller {
 			$img_width = $this->config->get('config_image_product_width');
 			$img_height = $this->config->get('config_image_product_height');
 
-			$img_width = 363;
-			$img_height = 300;
+			$img_width = 1000;
+			$img_height = 667;
 
 			$data['soldimage'] = $this->model_tool_image->resize('sold.png', $img_width, $img_height);
 
@@ -397,12 +406,12 @@ class ControllerProductCategory extends Controller {
 
 			$this->config->set('config_current_menu', $data['current_menu']);
 
+                        $tpl = $this->getTemplateName($category_id);
 
-
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/category.tpl')) {
-				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/product/category.tpl', $data));
+			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/' . $tpl . '.tpl')) {
+				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/product/' . $tpl . '.tpl', $data));
 			} else {
-				$this->response->setOutput($this->load->view('default/template/product/category.tpl', $data));
+				$this->response->setOutput($this->load->view('default/template/product/' . $tpl . '.tpl', $data));
 			}
 		} else {
 			$url = '';
@@ -462,4 +471,14 @@ class ControllerProductCategory extends Controller {
 			}
 		}
 	}
+        
+        public function getTemplateName ($category_id) {
+            if ($category_id === self::CURRENT_ID) {
+                return self::CRRENT_TPL_NAME;
+            }
+            
+            if ($category_id === self::SOLD_ID) {
+                return self::SOLD_TPL_NAME;
+            }
+        }
 }

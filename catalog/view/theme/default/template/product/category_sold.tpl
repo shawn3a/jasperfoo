@@ -109,7 +109,7 @@
         <div class="product-list col-xs-12">
               <div class="product-thumb">
                 <div class="image">
-                  <a class="feature-img-container" href="<?php echo $product['href']; ?>" style="width: 320px;">
+                  <a class="feature-img-container" href="<?php echo $product['href']; ?>">
                     <img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" />
 
                     <?php if($product['quantity'] <= 0) { ?>

@@ -28,8 +28,8 @@ class ControllerModuleFeatured extends Controller {
 
 		$products = array_slice($setting['product'], 0, (int)$setting['limit']);
 
-		$setting['width'] = 242;
-		$setting['height']= 200;
+		$setting['width'] = 1000;
+		$setting['height']= 667;
 
 
 		$data['soldimage'] = $this->model_tool_image->resize('sold.png', $setting['width'], $setting['height']);
