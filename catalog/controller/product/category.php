@@ -8,6 +8,9 @@ class ControllerProductCategory extends Controller {
     
     const CRRENT_TPL_NAME = 'category';
     const SOLD_TPL_NAME = 'category';
+    
+    public $state;
+    public $category_id;
 
     public function index() {
 		$this->load->language('product/category');
@@ -240,12 +243,12 @@ class ControllerProductCategory extends Controller {
 				} else {
 					$rating = false;
 				}
-
+                                
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
-					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('config_product_description_length')) . '..',
+					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 200) . '..',
 					'price'       => $price,
 					'special'     => $special,
 					'tax'         => $tax,
@@ -253,7 +256,7 @@ class ControllerProductCategory extends Controller {
 					
 					'quantity'      => $result['quantity'],
 
-					'model'   => $result['model'],
+					'address'   => $result['model'],
 
 					'open_days'   => $result['sku'],
 					'bathrooms'   => $result['upc'],
@@ -264,6 +267,12 @@ class ControllerProductCategory extends Controller {
 
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
 				);
+                                
+                                foreach ($data['products'] as &$product) {
+                                    $attributes = $this->model_catalog_product->getProductAttributes($product['product_id']);
+                                    if (array_key_exists(0, $attributes))
+                                    $product['attributes'] = $attributes[0]['attribute'];
+                                }
 			}
 
 
@@ -403,10 +412,16 @@ class ControllerProductCategory extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
+                        
 
 			$this->config->set('config_current_menu', $data['current_menu']);
 
-                        $tpl = $this->getTemplateName($category_id);
+                        $this->category_id = $category_id;
+                        $this->setState();
+                        
+                        $tpl = $this->getTemplateName();
+                        $data['category_id'] = $this->category_id;
+                        $data['state'] = $this->state;
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/' . $tpl . '.tpl')) {
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/product/' . $tpl . '.tpl', $data));
@@ -472,13 +487,23 @@ class ControllerProductCategory extends Controller {
 		}
 	}
         
-        public function getTemplateName ($category_id) {
-            if ($category_id === self::CURRENT_ID) {
+        public function getTemplateName () {
+            if ($this->category_id === self::CURRENT_ID) {
                 return self::CRRENT_TPL_NAME;
             }
             
-            if ($category_id === self::SOLD_ID) {
+            if ($this->category_id === self::SOLD_ID) {
                 return self::SOLD_TPL_NAME;
+            }
+        }
+        
+        public function setState () {
+            if ($this->category_id === self::CURRENT_ID) {
+                $this->state = 'current';
+            }
+            
+            if ($this->category_id === self::SOLD_ID) {
+                $this->state = 'sold';
             }
         }
 }

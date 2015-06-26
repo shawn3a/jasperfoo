@@ -12,12 +12,6 @@
                                    title="<?php echo $heading_title; ?>">
                                 <img class="col-sm-12" src="<?php echo $thumb; ?>" style="padding:0;" title="<?php echo $heading_title; ?>"
                                      alt="<?php echo $heading_title; ?>"/>
-
-                                <?php if($quantity <= 0) { ?>
-                                <img class="img-sold" src="<?php echo $sold_image; ?>" alt="" title=""
-                                     class="img-responsive"/>
-
-                                <?php } ?>
                             </a>
                         <?php } ?>
 
@@ -35,7 +29,7 @@
 
                     <h2><?php echo $heading_title; ?></h2>
                     <ul class="list-unstyled">
-                        <li><h3> <?php echo $model; ?></h3></li>
+                        <li><h3> <?php echo $address; ?></h3></li>
                         <?php if ($auction) { ?>
                         <li><h4><b><?php echo $text_auction; ?>:</b> <?php echo $auction; ?></h4></li>
                         <?php } ?>

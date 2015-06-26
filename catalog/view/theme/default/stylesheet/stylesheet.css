@@ -1170,7 +1170,7 @@ a {
 .img-sold {
 	position: absolute;
 	top: 0px;
-	left: 0px;
+	left: 15px;
 	height: 100%;
 }
 
@@ -1356,3 +1356,29 @@ h4.black-content {
 .social-container {
     padding: 0 5px;
 }
+.property-list-item {
+    padding-top: 20px;
+    border-bottom: 1px solid #C4C4C4;
+}
+.list-property-name, .list-property-address, .list-property-auction, .list-property-description, .list-property-opendays {
+    color: #000;
+}
+.list-property-name {
+    margin: 0;
+    padding: 0 0 15px 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+.list-property-address{
+    margin: 0;
+    padding: 0 0 15px 0;
+    font-weight: bold;
+    font-size: 12px;
+}
+.list-property-auction, .list-property-opendays {
+    font-size: 12px;
+}
+.list-property-description {
+    line-height: 15px;
+}
+
