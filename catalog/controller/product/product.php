@@ -229,7 +229,7 @@ class ControllerProductProduct extends Controller {
 			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
 			$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
 
-			$data['heading_title'] = $product_info['name'];
+			$data['name'] = $product_info['name'];
 
 			$data['text_select'] = $this->language->get('text_select');
 			$data['text_manufacturer'] = $this->language->get('text_manufacturer');
@@ -419,7 +419,14 @@ class ControllerProductProduct extends Controller {
 			$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
 			$data['rating'] = (int)$product_info['rating'];
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
-			$data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
+			$attributes = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
+                        foreach ($attributes as $k=>$attribute) {
+                            $attributes[$attribute['name']] = $attribute['attribute'];
+                            unset($attributes[$k]);
+                        }
+                        
+                        
+                        $data['attributes'] = $attributes;
 
 			$data['products'] = array();
 

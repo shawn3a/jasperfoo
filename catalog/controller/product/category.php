@@ -270,9 +270,14 @@ class ControllerProductCategory extends Controller {
                                 
                                 foreach ($data['products'] as &$product) {
                                     $attributes = $this->model_catalog_product->getProductAttributes($product['product_id']);
-                                    if (array_key_exists(0, $attributes))
-                                    $product['attributes'] = $attributes[0]['attribute'];
+                                    foreach ($attributes as $k=>$attribute) {
+                                        $attributes[$attribute['name']] = $attribute['attribute'];
+                                        unset($attributes[$k]);
+                                    }
                                 }
+                                
+                                $product['attributes'] = $attributes;
+                                
 			}
 
 

@@ -36,17 +36,35 @@
                         <?php } ?>
                         
                         <h4 class='list-property-address'><?php echo $product['address']; ?></h4>
-                        <p class="list-property-description"><?php echo $product['description']; ?></p>
-                        <?php if ($product['auction']) { ?>
-                        <h4 class='list-property-auction'><b><?php echo $text_auction; ?>:</b> <?php echo $product['auction']; ?></h4>
-                        <?php } ?>
+                        <p class="list-property-description"><?php echo $product['description'];  ?></p>
+                        
+                        
+                        <?php 
+                        if(array_key_exists('Business', $product['attributes'])) {
+                            foreach ($product['attributes']['Business'] as $business) { 
+                                if ($business['name'] === 'auction') {
+                            ?>
+                            <h4 class='list-property-auction'><b><?php echo $text_auction; ?>:</b> <?php echo $business['text']; ?></h4>
+                            <?php 
+                                }
+                            }
+                            ?>
 
-                        <?php if ($product['open_days']) { ?>              
-                        <h4 class='list-property-opendays'><b><?php echo $text_opendays; ?>:</b> <?php echo $product['open_days']; ?></h4>
-                        <?php } ?>
-                        <?php if (array_key_exists('attributes', $product)) { ?>
+                            <?php 
+                            foreach ($product['attributes']['Business'] as $business) { 
+                                if ($business['name'] === 'opendays') {
+                            ?>
+                            <h4 class='list-property-auction'><b><?php echo $text_opendays; ?>:</b> <?php echo $business['text']; ?></h4>
+                            <?php 
+                                }
+                            }
+                        }
+                        ?>
+                        
+                        
+                        <?php if (array_key_exists('Property', $product['attributes'])) { ?>
                         <ul class="list-inline list-property-attributs">
-                            <?php foreach ($product['attributes'] as $attribute) { ?>
+                            <?php foreach ($product['attributes']['Property'] as $attribute) { ?>
                             <li>
                                 <img src="./image/catalog/icons/<?php echo $attribute['name']; ?>.png" height="40px" title="<?php echo $attribute['name']; ?>" alt="<?php echo $attribute['name']; ?>">
                                 <span><?php echo $attribute['text']; ?></span>

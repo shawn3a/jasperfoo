@@ -25,46 +25,45 @@
                     </ul>
                     <?php } ?>
                 </div>
-                <div class="col-sm-6 col-xs-12" style="font-family: Arial, Helvetica, sans-serif; color: #000;">
+                <div class="col-sm-6 col-xs-12" style="font-family: Arial, Helvetica, sans-serif; color: #000; margin: 20px 0;">
 
-                    <h2><?php echo $heading_title; ?></h2>
-                    <ul class="list-unstyled">
-                        <li><h3> <?php echo $address; ?></h3></li>
-                        <?php if ($auction) { ?>
-                        <li><h4><b><?php echo $text_auction; ?>:</b> <?php echo $auction; ?></h4></li>
+                    <h3 class='list-property-name'><?php echo $name; ?></h3>
+                    <h4 class='list-property-address'><?php echo $address; ?></h4>
+                    <?php 
+                    if(array_key_exists('Business', $attributes)) {
+                        foreach ($attributes['Business'] as $business) { 
+                            if ($business['name'] === 'auction') {
+                        ?>
+                        <h4 class='list-property-auction'><b><?php echo $text_auction; ?>:</b> <?php echo $business['text']; ?></h4>
+                        <?php 
+                            }
+                        }
+                        ?>
+
+                        <?php 
+                        foreach ($attributes['Business'] as $business) { 
+                            if ($business['name'] === 'opendays') {
+                        ?>
+                        <h4 class='list-property-auction'><b><?php echo $text_opendays; ?>:</b> <?php echo $business['text']; ?></h4>
+                        <?php 
+                            }
+                        }
+                    }
+                    ?>
+                    
+                    <?php if (array_key_exists('property', $attributes)) { ?>
+                    <ul class="list-inline list-property-attributs">
+                        <?php foreach ($attributes['property'] as $attribute) { ?>
+                        <li>
+                            <img src="./image/catalog/icons/<?php echo $attribute['name']; ?>.png" height="40px" title="<?php echo $attribute['name']; ?>" alt="<?php echo $attribute['name']; ?>">
+                            <span><?php echo $attribute['text']; ?></span>
+                        </li>
                         <?php } ?>
-                        <?php if ($open_days) { ?>
-                        <li><h4><b><?php echo $text_opendays; ?>:</b> <?php echo $open_days; ?></h4></li>
-                        <?php } ?>
-
-
                     </ul>
-                    <ul class="list-inline">
-                        <?php if ($bathrooms) { ?>
-                        <li style="vertical-align: bottom;">
-                            <img src="./image/bath.png" height="40px" title="Bathroom" alt="Bathroom"> <span
-                                style="font-size:16px;"><?php echo $bathrooms; ?>&nbsp;&nbsp;</span></li>
-                        <?php } ?>
+                    <?php } ?>
+                    
+                    <p class="list-property-description"><?php echo $description; ?></p>
 
-                        <?php if ($bedrooms) { ?>
-                        <li><img src="./image/bed.png" height="40px" title="Bathroom" alt="Bathroom"> <span
-                                style="font-size:16px;"><?php echo $bedrooms; ?>&nbsp;&nbsp;</span></li>
-                        <?php } ?>
-
-                        <?php if ($garaoges) { ?>
-                        <li><img src="./image/garage.png" height="40px" title="Bathroom" alt="Bathroom"> <span
-                                style="font-size:16px;"><?php echo $garaoges; ?>&nbsp;&nbsp;</span></li>
-                        <?php } ?>
-
-                        <?php if ($sittingrooms) { ?>
-                        <li><img src="./image/sofa.png" height="40px" title="Bathroom" alt="Bathroom"> <span
-                                style="font-size:16px;"><?php echo $sittingrooms; ?>&nbsp;&nbsp;</span></li>
-                        <?php } ?>
-
-                    </ul>
-                    <ul class="list-unstyled">
-                        <li><h4> <?php echo $description; ?></h4></li>
-                    </ul>
                 </div>
                 <div class="back-link col-sm-6">
                     <a class="pull-right" href="javascript:history.go(-1);">Back to listings</a>
