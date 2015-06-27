@@ -301,8 +301,13 @@ class ControllerProductProduct extends Controller {
 			$data['quantity'] = $product_info['quantity'];
 
                         $video_id = $product_info['sku'];
-			$data['video'] = 'https://www.youtube.com/v/' . $video_id . '&autoplay=1';
-                        $data['video_thumb'] = 'http://img.youtube.com/vi/' . $video_id . '/0.jpg';
+                        if($video_id) {
+                            $data['video'] = 'https://www.youtube.com/v/' . $video_id . '&autoplay=1';
+                            $data['video_thumb'] = 'http://img.youtube.com/vi/' . $video_id . '/0.jpg';
+                        } else {
+                            $data['video'] = '';
+                        }
+
 			$data['bathrooms'] = $product_info['upc'];
 			$data['bedrooms'] = $product_info['ean'];
 			$data['garaoges'] = $product_info['jan'];
