@@ -1381,4 +1381,9 @@ h4.black-content {
 .list-property-description {
     line-height: 15px;
 }
+.play-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 

@@ -24,10 +24,9 @@
                         <?php } ?>
                         
                         <?php if ($video) { ?>
-                        
-                        <?php var_dump($video); ?>
-                            <a class="fancybox col-sm-12" style="padding:0; margin: 10px 0;" rel="group" href="<?php echo $video; ?>" title="<?php echo $heading_title; ?>">
-                                <img class="col-sm-12" style="padding:0;" src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"/>
+                            <a class="fancybox-video col-sm-12" style="padding:0; margin: 10px 0;" rel="group" href="<?php echo $video; ?>" title="">
+                                <image class="col-sm-12" style="padding: 0;" src="<?php echo $video_thumb; ?>" >
+                                <image class="col-sm-12 play-image" style="padding: 0;" src="image/play.png" >
                             </a>
                         <?php } ?>
                         
