@@ -1386,4 +1386,8 @@ h4.black-content {
     left: 0;
     top: 0;
 }
+.attribute-icon {
+    width: 40px;
+    margin-right: 5px;
+}
 

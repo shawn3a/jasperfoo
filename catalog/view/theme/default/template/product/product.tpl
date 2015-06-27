@@ -8,23 +8,21 @@
                     <?php if ($thumb || $images) { ?>
                     <ul class="col-sm-12" style="padding:0;">
                         <?php if ($thumb) { ?>
-                            <a class="feature-img-container col-sm-12 fancybox" style="padding:0; margin: 20px 0;" href="<?php echo $popup; ?>" rel="group"
-                                   title="<?php echo $heading_title; ?>">
-                                <img class="col-sm-12" src="<?php echo $thumb; ?>" style="padding:0;" title="<?php echo $heading_title; ?>"
-                                     alt="<?php echo $heading_title; ?>"/>
+                            <a class="feature-img-container col-sm-12 fancybox" style="padding:0; margin: 20px 0;" href="<?php echo $popup; ?>" rel="group" >
+                                <img class="col-sm-12" src="<?php echo $thumb; ?>" style="padding:0;" />
                             </a>
                         <?php } ?>
 
                         <?php if ($images) { ?>
                         <?php foreach ($images as $image) { ?>
-                            <a class="fancybox col-sm-6" style="padding:0; margin: 10px 0;" rel="group" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>">
-                                <img class="col-sm-12" style="padding:0;" src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"/>
+                            <a class="fancybox col-sm-6" style="padding:0; margin: 10px 0;" rel="group" href="<?php echo $image['popup']; ?>" >
+                                <img class="col-sm-12" style="padding:0;" src="<?php echo $image['thumb']; ?>" />
                             </a>
                         <?php } ?>
                         <?php } ?>
                         
                         <?php if ($video) { ?>
-                            <a class="fancybox-video col-sm-12" style="padding:0; margin: 10px 0;" rel="group" href="<?php echo $video; ?>" title="">
+                            <a class="fancybox-video col-sm-12" style="padding:0; margin: 10px 0;" rel="group" href="<?php echo $video; ?>" >
                                 <image class="col-sm-12" style="padding: 0;" src="<?php echo $video_thumb; ?>" >
                                 <image class="col-sm-12 play-image" style="padding: 0;" src="image/play.png" >
                             </a>
@@ -49,7 +47,7 @@
                     <ul class="list-inline list-property-attributs">
                         <?php foreach ($attributes as $name => $attribute) { ?>
                         <li>
-                            <img src="./image/catalog/icons/<?php echo $name; ?>.png" height="40px" title="<?php echo $name; ?>" alt="<?php echo $name; ?>">
+                            <img src="./image/catalog/icons/<?php echo $name; ?>.png" class="attribute-icon" title="<?php echo $name; ?>" alt="<?php echo $name; ?>">
                             <span><?php echo $attribute; ?></span>
                         </li>
                         <?php } ?>

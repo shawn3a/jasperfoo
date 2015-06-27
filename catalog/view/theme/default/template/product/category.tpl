@@ -52,7 +52,7 @@
                         <ul class="list-inline list-property-attributs">
                             <?php foreach ($product['attributes'] as $name => $attribute) { ?>
                             <li>
-                                <img src="./image/catalog/icons/<?php echo $name; ?>.png" height="40px" title="<?php echo $name; ?>" alt="<?php echo $name; ?>">
+                                <img src="./image/catalog/icons/<?php echo $name; ?>.png"  class="attribute-icon" title="<?php echo $name; ?>" alt="<?php echo $name; ?>">
                                 <span><?php echo $attribute; ?></span>
                             </li>
                             <?php } ?>
