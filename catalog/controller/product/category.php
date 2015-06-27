@@ -11,6 +11,22 @@ class ControllerProductCategory extends Controller {
     
     public $state;
     public $category_id;
+    
+    public static $attributes = array(
+        'bathroom',
+        'bedroom',
+        'boat park',
+        'carport',
+        'dining',
+        'garage',
+        'lift',
+        'lounge',
+        'offstreet',
+        'study',
+        'swimming pool',
+        'toilet',
+        'icon.list'
+    );
 
     public function index() {
 		$this->load->language('product/category');
@@ -269,14 +285,17 @@ class ControllerProductCategory extends Controller {
 				);
                                 
                                 foreach ($data['products'] as &$product) {
-                                    $attributes = $this->model_catalog_product->getProductAttributes($product['product_id']);
-                                    foreach ($attributes as $k=>$attribute) {
-                                        $attributes[$attribute['name']] = $attribute['attribute'];
-                                        unset($attributes[$k]);
+                                    $product['auction'] = $this->model_catalog_product->getAttributeByName('auction', $product['product_id']);
+                                    $product['opendays'] = $this->model_catalog_product->getAttributeByName('opendays', $product['product_id']);
+
+                                    foreach (self::$attributes as $attribute) {
+                                         $temp_text = $this->model_catalog_product->getAttributeByName($attribute, $product['product_id']);
+
+                                         if ($temp_text) {
+                                            $product['attributes'][$attribute] = $temp_text;
+                                         }
                                     }
                                 }
-                                
-                                $product['attributes'] = $attributes;
                                 
 			}
 

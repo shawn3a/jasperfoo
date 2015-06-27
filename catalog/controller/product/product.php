@@ -1,8 +1,24 @@
 <?php
 class ControllerProductProduct extends Controller {
 	private $error = array();
+        
+        public static $attributes = array(
+            'bathroom',
+            'bedroom',
+            'boat park',
+            'carport',
+            'dining',
+            'garage',
+            'lift',
+            'lounge',
+            'offstreet',
+            'study',
+            'swimming pool',
+            'toilet',
+            'icon.list'
+        );
 
-	public function index() {
+        public function index() {
 		$this->load->language('product/product');
 
 		$data['breadcrumbs'] = array();
@@ -284,7 +300,7 @@ class ControllerProductProduct extends Controller {
 
 			$data['quantity'] = $product_info['quantity'];
 
-			$data['open_days'] = $product_info['sku'];
+			$data['video'] = html_entity_decode($product_info['sku']);
 			$data['bathrooms'] = $product_info['upc'];
 			$data['bedrooms'] = $product_info['ean'];
 			$data['garaoges'] = $product_info['jan'];
@@ -419,14 +435,18 @@ class ControllerProductProduct extends Controller {
 			$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
 			$data['rating'] = (int)$product_info['rating'];
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
-			$attributes = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
-                        foreach ($attributes as $k=>$attribute) {
-                            $attributes[$attribute['name']] = $attribute['attribute'];
-                            unset($attributes[$k]);
+                        
+                        $data['auction'] = $this->model_catalog_product->getAttributeByName('auction', $this->request->get['product_id']);
+                        $data['opendays'] = $this->model_catalog_product->getAttributeByName('opendays', $this->request->get['product_id']);
+                        
+                        foreach (self::$attributes as $attribute) {
+                            
+                             $temp_text = $this->model_catalog_product->getAttributeByName($attribute, $this->request->get['product_id']);
+                        
+                             if ($temp_text) {
+                                $data['attributes'][$attribute] = $temp_text;
+                             }
                         }
-                        
-                        
-                        $data['attributes'] = $attributes;
 
 			$data['products'] = array();
 

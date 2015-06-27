@@ -22,6 +22,15 @@
                             </a>
                         <?php } ?>
                         <?php } ?>
+                        
+                        <?php if ($video) { ?>
+                        
+                        <?php var_dump($video); ?>
+                            <a class="fancybox col-sm-12" style="padding:0; margin: 10px 0;" rel="group" href="<?php echo $video; ?>" title="<?php echo $heading_title; ?>">
+                                <img class="col-sm-12" style="padding:0;" src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"/>
+                            </a>
+                        <?php } ?>
+                        
                     </ul>
                     <?php } ?>
                 </div>
@@ -29,34 +38,20 @@
 
                     <h3 class='list-property-name'><?php echo $name; ?></h3>
                     <h4 class='list-property-address'><?php echo $address; ?></h4>
-                    <?php 
-                    if(array_key_exists('Business', $attributes)) {
-                        foreach ($attributes['Business'] as $business) { 
-                            if ($business['name'] === 'auction') {
-                        ?>
-                        <h4 class='list-property-auction'><b><?php echo $text_auction; ?>:</b> <?php echo $business['text']; ?></h4>
-                        <?php 
-                            }
-                        }
-                        ?>
+                    <?php if($auction) { ?>
+                    <h4 class='list-property-auction'><b><?php echo $text_auction; ?>:</b> <?php echo $auction; ?></h4>
+                    <?php } ?>
 
-                        <?php 
-                        foreach ($attributes['Business'] as $business) { 
-                            if ($business['name'] === 'opendays') {
-                        ?>
-                        <h4 class='list-property-auction'><b><?php echo $text_opendays; ?>:</b> <?php echo $business['text']; ?></h4>
-                        <?php 
-                            }
-                        }
-                    }
-                    ?>
+                    <?php if($opendays) { ?>
+                    <h4 class='list-property-auction'><b><?php echo $text_opendays; ?>:</b> <?php echo $opendays; ?></h4>
+                    <?php } ?>
                     
-                    <?php if (array_key_exists('property', $attributes)) { ?>
+                    <?php if (!empty($attributes)) { ?>
                     <ul class="list-inline list-property-attributs">
-                        <?php foreach ($attributes['property'] as $attribute) { ?>
+                        <?php foreach ($attributes as $name => $attribute) { ?>
                         <li>
-                            <img src="./image/catalog/icons/<?php echo $attribute['name']; ?>.png" height="40px" title="<?php echo $attribute['name']; ?>" alt="<?php echo $attribute['name']; ?>">
-                            <span><?php echo $attribute['text']; ?></span>
+                            <img src="./image/catalog/icons/<?php echo $name; ?>.png" height="40px" title="<?php echo $name; ?>" alt="<?php echo $name; ?>">
+                            <span><?php echo $attribute; ?></span>
                         </li>
                         <?php } ?>
                     </ul>
