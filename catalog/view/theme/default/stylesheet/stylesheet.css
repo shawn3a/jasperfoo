@@ -1390,4 +1390,32 @@ h4.black-content {
     width: 40px;
     margin-right: 5px;
 }
+.sold-price {
+    color: #FF0001;
+}
+.sold-star {
+    width: 16px;
+    vertical-align: top;
+    margin-left: 5px;
+}
+.watch-link {
+    font-weight: bold;
+    color: #003C71;
+    margin: 0;
+}
+.bottom-indicator {
+    position: relative;
+    top: 20px;
+    color: #000;
+}
+.pagination>.active>span {
+    background: none;
+    color: #757575;
+    font-weight: bold;
+    border: none;
+}
+.pagination>li>a {
+    color: #757575;
+    border: none;
+}
 

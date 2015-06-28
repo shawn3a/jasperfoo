@@ -29,7 +29,11 @@
                         <?php if($state == 'current') { ?>
                         <a href="<?php echo $product['href']; ?>">
                         <?php } ?>
-                            <h3 class='list-property-name'><?php echo $product['name']; ?></h3>
+                        <h3 class='list-property-name'><?php echo $product['name']; ?>
+                            <?php if($state == 'sold') { ?>
+                            <span class="sold-price"><?php echo $product['price']; ?><image class="sold-star" src="image/star.png" ></span>
+                            <?php } ?>
+                        </h3>
                             
                         <?php if($state == 'current') { ?>
                         </a>
@@ -59,6 +63,13 @@
                         </ul>
                         <?php } ?>
 
+                        <?php if($state == 'sold') { ?>
+                            <?php if ($product['video']) { ?>
+                                <a class="fancybox-video col-sm-12" style="padding:0; margin: 10px 0;" rel="group" href="<?php echo $product['video']; ?>" >
+                                    <h5 class="watch-link">< Watch video</h5>
+                                </a>
+                            <?php } ?>
+                        <?php } ?>
 
 
                     </div>
@@ -67,6 +78,12 @@
                 <?php } ?>
             </div>
             <div class="row">
+                <?php if($state == 'sold') { ?>
+                <div class="text-center bottom-indicator">
+                    <image class="sold-star" src="image/star.png" >
+                    Indicates record price at the time of sale
+                </div>
+                <?php } ?>
                 <div class="col-sm-12 text-right"><?php echo $pagination; ?></div>
                     <!--
                 <div class="col-sm-6 text-right"><?php echo $results; ?></div>

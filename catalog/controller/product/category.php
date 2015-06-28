@@ -273,13 +273,11 @@ class ControllerProductCategory extends Controller {
 					'quantity'      => $result['quantity'],
 
 					'address'   => $result['model'],
-
-					'open_days'   => $result['sku'],
+                                        'video_id'  => $result['sku'],
 					'bathrooms'   => $result['upc'],
 					'bedrooms'    => $result['ean'],
 					'garaoges'    => $result['jan'],
 					'sittingrooms' => $result['isbn'],
-					'auction'      => $result['mpn'],
 
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
 				);
@@ -294,6 +292,13 @@ class ControllerProductCategory extends Controller {
                                          if ($temp_text) {
                                             $product['attributes'][$attribute] = $temp_text;
                                          }
+                                    }
+                                    
+                                    if($product['video_id']) {
+                                        $product['video'] = 'https://www.youtube.com/v/' . $product['video_id'] . '&autoplay=1';
+                                        $product['video_thumb'] = 'http://img.youtube.com/vi/' . $product['video_id'] . '/0.jpg';
+                                    } else {
+                                        $product['video'] = '';
                                     }
                                 }
                                 
