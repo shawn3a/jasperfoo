@@ -3,7 +3,7 @@
     <div class="row">
 
         <div id="content" style="background-color:#F6F7F7; padding-top: 20px;" class="col-sm-10 col-sm-offset-1">
-
+            
             <?php if ($products) { ?>
             <div class="row">
                 <?php foreach ($products as $product) { ?>
@@ -91,10 +91,22 @@
             </div>
             <?php } ?>
             <?php if (!$categories && !$products) { ?>
-            <p><?php echo $text_empty; ?></p>
-            <div class="buttons">
-                <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
-            </div>
+            <section>
+                <div class="product-thumb col-sm-5 product-empty-left">
+                    <h3 class="empty-message">
+                    PROPERTIES NEEDED<br>
+                    HIGH BUYER DEMAND
+                    </h3>
+                </div>
+
+                <div class="product-overview col-sm-7 product-empty-right">
+                    <p class="empty-explaination">
+                        Most of our properties have been sold and we are currently listing
+                        new properties. Give us a call If you are considering selling now or
+                        in the near future for a <span>FREE NO ObligAtiOn AppRAisAl</span>.
+                    </p>
+                </div>
+            </section>
             <?php } ?>
         </div>
     </div>

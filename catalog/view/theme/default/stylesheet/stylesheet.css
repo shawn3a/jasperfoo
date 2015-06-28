@@ -1418,4 +1418,25 @@ h4.black-content {
     color: #757575;
     border: none;
 }
+.product-empty-left {
+    text-align: center;
+    background-color: #003C71;
+    min-height: 200px;
+}
+.empty-message {
+    color: #fff;
+    padding-top: 40px;
+    line-height: 40px;
+}
+.product-empty-right {
+    min-height: 200px;
+}
+.empty-explaination {
+    color: #000;
+    padding-top: 40px;
+}
+.empty-explaination>span {
+    text-transform: uppercase;
+    font-weight: bold;
+}
 
