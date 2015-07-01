@@ -1,5 +1,17 @@
+@font-face {
+    font-family: 'MyFonts';
+    src: local('Kaiti SC');
+    unicode-range: U+4E00-9FFF;
+}
+
+@font-face {
+    font-family: 'MyFonts';
+    src: local('Open Sans');
+}
+
+
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'MyFonts', sans-serif;
 	font-weight: 400;
 	color: #666;
 	font-size: 12px;
