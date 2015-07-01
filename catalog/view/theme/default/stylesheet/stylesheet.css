@@ -1208,9 +1208,10 @@ footer ul.quick-links {
 
 #contact-box {
     background-image: url("/image/contact_bg.png");
+    background-size: cover;
     background-position: center;
-    background-repeat: repeat;
-    margin-top: 200px;
+    background-repeat: no-repeat;
+    margin-top: 100px;
 }
 
 header.show-contact .cover-content {
@@ -1337,7 +1338,8 @@ h4.black-content {
     float: left; 
     display: block;
     padding: 0 5px;
-    font-size: 10px;
+    font-size: 13px;
+    line-height: 26px;
     text-transform: uppercase;
     box-sizing: content-box;
 }
@@ -1354,7 +1356,7 @@ h4.black-content {
 }
 
 .social-container {
-    padding: 0 5px;
+    padding: 0 1px;
 }
 .property-list-item {
     padding-top: 20px;
@@ -1440,3 +1442,9 @@ h4.black-content {
     font-weight: bold;
 }
 
+.flex-direction-nav {
+display: none !important;
+}
+.flex-caption{
+left:0 !important;
+}

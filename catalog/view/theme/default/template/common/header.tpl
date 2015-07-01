@@ -44,6 +44,12 @@
 
 <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
 
+<style type="text/css">
+    body {
+
+    }
+</style>
+
 <script type="text/javascript">
     $(document).ready(function() {
         $(".fancybox").fancybox({
