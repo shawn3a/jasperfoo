@@ -24,9 +24,5 @@
         $links.removeClass('tmp-disable');
         $('body').css('overflow', 'auto');
     });
-    
-//    $contactSubmit.click(function(e){
-//
-//        
-//    });
+
 })(jQuery);
