@@ -1,7 +1,7 @@
 <?php echo $header; ?>
 <div class="container-fluid">
     <div class="row">
-        <div id="content" style="background-color:rgba(255, 255, 255, 0.4);min-height:500px;"
+        <div id="content" style="background-color:#F6F7F7;min-height:500px;"
              class="col-sm-10 col-sm-offset-1"><?php echo $content_top; ?>
             <div class="row">
                 <div class="col-sm-6 col-xs-12" style="padding:0;">
