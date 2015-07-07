@@ -859,12 +859,6 @@ header .container_head {
 	/*background-color: #ffffff;*/
 }
 
-.container {
-	background: url("http://demo.jasperfoo.co.nz/image/contain_bg.jpg") repeat ;	
-
-	/*background-color: #3D3F3D;*/
-}
-
 header {
 	padding:0px;
 	background-color: #ffffff;
@@ -1214,6 +1208,7 @@ footer ul.quick-links {
     z-index: 999;
     background-color: rgba(0, 0, 0, 0.7);
     visibility: hidden;
+    overflow-y: scroll;
     opacity: 0;
     transition: all 0.5s ease 0s;
 }
@@ -1227,7 +1222,12 @@ footer ul.quick-links {
     margin-top: 100px;
 }
 
-header.show-contact .cover-content {
+body.show-contact {
+    overflow: hidden;
+    padding-right: 15px;
+}
+
+.show-contact.cover-content {
     visibility: visible;
     opacity: 1;
 }
@@ -1236,7 +1236,7 @@ header.show-contact .cover-content {
     cursor: pointer;
 }
 
-header.show-contact #contact-link {
+body.show-contact #contact-link {
     color: #003C76;
 }
 

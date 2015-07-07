@@ -14,15 +14,17 @@
         $contactSubmit = $('#contact-submit');
         
     $contactLink.click(function(){
-        $('header').addClass('show-contact');
+        $cover.addClass('show-contact');
+        $('body').addClass('show-contact');
         $links.addClass('tmp-disable');
-        $('body').css('overflow', 'hidden');
     });
     
     $contactCancel.click(function(){
-        $('header').removeClass('show-contact');
+        $cover.removeClass('show-contact');
+        window.setTimeout(function(){
+            $('body').removeClass('show-contact');
+        }, 500);
         $links.removeClass('tmp-disable');
-        $('body').css('overflow', 'auto');
     });
 
 })(jQuery);
