@@ -19,7 +19,7 @@ body {
 	background-image: url("/image/background.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #E7E7E7;
+    background-color: #E2E2E2;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1292,7 +1292,7 @@ header.show-contact #contact-link {
 }
 
 #contact-box .contact-logo {
-    background-image: url('/image/contact_logo.png');
+    background-image: url('/image/catalog/logo.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -1329,11 +1329,11 @@ h4.black-content {
 }
 
 .fancybox:nth-child(odd) {
-    padding-left: 10px !important;
+    padding-left: 15px !important;
 }
 
 .fancybox:nth-child(even) {
-    padding-right: 10px !important;
+    padding-right: 15px !important;
 }
 
 .fancybox:nth-child(1) {
@@ -1373,7 +1373,7 @@ h4.black-content {
     padding: 0 1px;
 }
 .property-list-item {
-    padding-top: 20px;
+    padding-top: 15px;
     border-bottom: 1px solid #C4C4C4;
 }
 .list-property-name, .list-property-address, .list-property-auction, .list-property-description, .list-property-opendays {
