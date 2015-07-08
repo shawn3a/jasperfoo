@@ -588,7 +588,6 @@ footer h5 {
 /* product list */
 .product-thumb {
 	border: 0px solid #ddd;
-	margin-bottom: 20px;
 	/*overflow: hidden;
 	/*overflow: auto;*/
 	/*max-height: 400px;*/
@@ -1292,7 +1291,7 @@ body.show-contact #contact-link {
 }
 
 #contact-box .contact-logo {
-    background-image: url('/image/catalog/logo.png');
+    background-image: url('/image/contact_logo.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -1319,21 +1318,22 @@ h4.black-content {
 .back-link {
 	position: absolute;
 	bottom: 20px;
-	right: 20px;
+	right: 0;
 }
 
 .back-link a {
-	font-size: 26px;
-	font-family: serif;
+	font-size: 19px;
+	font-family: Calibri, San-serif;
+    text-transform: uppercase;
 	color: #757575;
 }
 
 .fancybox:nth-child(odd) {
-    padding-left: 15px !important;
+    padding-left: 10px !important;
 }
 
 .fancybox:nth-child(even) {
-    padding-right: 15px !important;
+    padding-right: 10px !important;
 }
 
 .fancybox:nth-child(1) {
@@ -1373,7 +1373,7 @@ h4.black-content {
     padding: 0 1px;
 }
 .property-list-item {
-    padding-top: 15px;
+    padding-top: 20px;
     border-bottom: 1px solid #C4C4C4;
 }
 .list-property-name, .list-property-address, .list-property-auction, .list-property-description, .list-property-opendays {
@@ -1462,3 +1462,27 @@ display: none !important;
 .flex-caption{
 left:0 !important;
 }
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-gutter {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#content {
+    background-color:#F6F7F7;
+    min-height:500px;
+    padding: 20px;
+}
+
+.property-list-item {
+    padding: 20px 0;
+}
+
+.property-list-item:nth-child(1) {
+    padding-top: 0;
+}
+

@@ -4,7 +4,7 @@
     <div class="row">
      <div class="col-sm-5 col-sm-offset-1 footer-company">
                 <div id="footerlogo" >
-                   <a href="http://demo.jasperfoo.co.nz/index.php?route=common/home"><img src="http://demo.jasperfoo.co.nz/image/catalog/logo.png" title="Your Store" alt="Your Store" class="img-responsive"></a>
+                   <a href="/index.php?route=common/home"><img src="/image/catalog/logo.png" title="Your Store" alt="Your Store" class="img-responsive"></a>
                </div>
                 <p><?php echo $text_jasperfoo; ?><br> 
                 <?php echo $text_licensed; ?>

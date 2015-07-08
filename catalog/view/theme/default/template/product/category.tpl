@@ -2,7 +2,7 @@
 <div class="container-fluid" >
     <div class="row">
 
-        <div id="content" style="background-color:#F6F7F7; padding-top: 15px;" class="col-sm-10 col-sm-offset-1">
+        <div id="content" class="col-sm-10 col-sm-offset-1">
             
             <?php if ($products) { ?>
             <div class="row">
