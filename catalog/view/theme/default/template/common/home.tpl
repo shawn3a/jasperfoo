@@ -11,7 +11,8 @@
         <?php } ?>
 <!--        <div id="content" class="<?php echo $class; ?>">-->
         <div id="content" class="col-sm-12">
-            <?php echo $content_top; ?><?php echo $content_bottom; ?>
+            <?php echo $content_top; ?>
+            <?php echo $content_bottom; ?>
         </div>
         <?php echo $column_right; ?>
   </div>

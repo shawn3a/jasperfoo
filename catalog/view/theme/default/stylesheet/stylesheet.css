@@ -1486,3 +1486,7 @@ left:0 !important;
     padding-top: 0;
 }
 
+.common-home #content {
+	padding: 0;
+	background: transparent;
+}
