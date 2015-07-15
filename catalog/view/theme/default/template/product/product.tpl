@@ -14,14 +14,14 @@
 
                         <?php if ($images) { ?>
                         <?php foreach ($images as $image) { ?>
-                            <a class="fancybox col-sm-6 col-xs-12" style="padding: 20px 0 0 0;" rel="group" href="<?php echo $image['popup']; ?>" >
+                            <a class="fancybox col-sm-6 col-xs-6" style="padding: 20px 0 0 0;" rel="group" href="<?php echo $image['popup']; ?>" >
                                 <img class="img-responsive" style="" src="<?php echo $image['thumb']; ?>" />
                             </a>
                         <?php } ?>
                         <?php } ?>
                         
                         <?php if ($video) { ?>
-                            <a class="fancybox-video col-sm-12" style="padding: 20px 0 0 0;" rel="group" href="<?php echo $video; ?>" >
+                            <a class="fancybox-video col-sm-12 col-xs-12" style="padding: 20px 0 0 0;" rel="group" href="<?php echo $video; ?>" >
                                 <image class="img-responsive" style="padding: 0;" src="<?php echo $video_thumb; ?>" >
                                 <image class="img-responsive play-image" style="padding: 0;" src="image/play.png" >
                             </a>

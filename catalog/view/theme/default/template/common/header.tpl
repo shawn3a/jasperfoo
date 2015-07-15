@@ -117,14 +117,14 @@
                     <?php echo $language; ?>
                     </div>
                 
-                    <div class="pull-right">
+                    <div class="pull-right" >
 
-                       <div class="col-sm-6 social-container">
+                       <div class="col-sm-6 col-xs-6 social-container">
                           <a href="#">
                             <img src="./image/facebookicon.png" style="height:26px;" class="img-responsive" alt="facebook"> 
                          </a>
                        </div> 
-                       <div class="col-sm-6 social-container" >
+                       <div class="col-sm-6 col-xs-6 social-container" >
                           <a href="#">
                             <img src="./image/linkedinicon.png" style="height:26px;" class="img-responsive" alt="linkin"> 
                           </a>

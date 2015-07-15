@@ -27,4 +27,8 @@
         $links.removeClass('tmp-disable');
     });
 
+    $(".contact-link").click(function(){
+        $contactLink.trigger('click');
+    });
+
 })(jQuery);

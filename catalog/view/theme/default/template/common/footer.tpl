@@ -60,8 +60,7 @@
           <li><a href="<?php echo $quicklink['href']; ?>"><?php echo $quicklink['name']; ?></a></li>
           <?php } ?>
 
-          <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
-
+          <li><a class="contact-link" href="javascript:void(0);"><?php echo $text_contact; ?></a></li>
         </ul>
       </div>
       <?php } ?>
