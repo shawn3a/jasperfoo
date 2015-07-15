@@ -8,13 +8,13 @@
                     <ul class="col-sm-12 no-gutter">
                         <?php if ($thumb) { ?>
                             <a class="feature-img-container col-sm-12 fancybox" href="<?php echo $popup; ?>" rel="group" >
-                                <img class="col-sm-12" src="<?php echo $thumb; ?>" style="padding:0;" />
+                                <img class="col-sm-12 col-xs-12" src="<?php echo $thumb; ?>" style="padding:0;" />
                             </a>
                         <?php } ?>
 
                         <?php if ($images) { ?>
                         <?php foreach ($images as $image) { ?>
-                            <a class="fancybox col-sm-6" style="padding: 20px 0 0 0;" rel="group" href="<?php echo $image['popup']; ?>" >
+                            <a class="fancybox col-sm-6 col-xs-12" style="padding: 20px 0 0 0;" rel="group" href="<?php echo $image['popup']; ?>" >
                                 <img class="img-responsive" style="" src="<?php echo $image['thumb']; ?>" />
                             </a>
                         <?php } ?>
