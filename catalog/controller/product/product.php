@@ -302,7 +302,7 @@ class ControllerProductProduct extends Controller {
 
                         $video_id = $product_info['sku'];
                         if($video_id) {
-                            $data['video'] = 'https://www.youtube.com/v/' . $video_id . '&autoplay=1';
+                            $data['video'] = 'https://www.youtube.com/embed/' . $video_id . '?wmode=opaque&autoplay=1';
                             $data['video_thumb'] = 'http://img.youtube.com/vi/' . $video_id . '/0.jpg';
                         } else {
                             $data['video'] = '';

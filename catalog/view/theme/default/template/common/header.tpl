@@ -41,7 +41,6 @@
 <?php foreach ($scripts as $script) { ?>
 <script src="<?php echo $script; ?>" type="text/javascript"></script>
 <?php } ?>
-
 <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
 
 <script type="text/javascript">
@@ -59,33 +58,29 @@
             
         });
         
-        $(".fancybox-video").click(function() {
-            $.fancybox({
-                    'padding'		: 0,
-                    'autoScale'		: false,
-                    'transitionIn'	: 'none',
-                    'transitionOut'	: 'none',
-                    'title'			: this.title,
-                    'width'		: 680,
-                    'height'		: 495,
-                    'href'			: this.href,
-                    'type'			: 'swf',
-                    'swf'			: {
-                             'wmode'		: 'transparent',
-                            'allowfullscreen'	: 'true'
-                    }
-            });
-
-            return false;
+        $(".fancybox-video").fancybox({
+    //                    'padding'		: 0,
+    //                    'autoScale'		: true,
+    //                    'transitionIn'	: 'none',
+    //                    'transitionOut'	: 'none',
+                type: "iframe",
+                iframe : {
+                    preload: false
+                },
+                'title'			: this.title,
+                'href'			: this.href
+    //                    'type'			: 'swf',
+    //                    'swf'			: {
+    //                        'wmode'		: 'transparent',
+    //                        'allowfullscreen'	: 'true'
+    //                    }
         });
     });
 </script>
 </head>
 <body class="<?php echo $class; ?>">
 
-
 <header>
-
   <div class="container-fluid">
     <div class="row">
         <a href="/" >
