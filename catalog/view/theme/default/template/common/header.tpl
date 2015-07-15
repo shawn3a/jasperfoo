@@ -89,7 +89,7 @@
   <div class="container-fluid">
     <div class="row">
         <a href="/" >
-          <img src="./image/header_without_icon-big.jpg" class="img-responsive" alt="headerimage">
+          <img src="./image/header_without_icon-big.jpg" class="img-responsive" style="min-height: 60px;" alt="headerimage">
         </a>
     <div class="container_head">
     <div class="container">
@@ -108,7 +108,6 @@
        </div> 
         <div class="col-sm-6 col-xs-10" >
            <div class="row">
-
 
                <div class="pull-right" style="margin-top: 5px; margin-right: 30px;">
                    
