@@ -110,7 +110,7 @@
            <div class="row">
 
 
-               <div class="pull-right" style="margin-top: 10px; margin-right: 30px;">
+               <div class="pull-right" style="margin-top: 5px; margin-right: 30px;">
                    
                     <div class="pull-right" >
                         <!--  <?php echo $currency; ?>-->
