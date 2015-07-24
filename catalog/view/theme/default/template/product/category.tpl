@@ -49,8 +49,8 @@
                         
                         <h4 class='list-property-address'><?php echo $product['address']; ?></h4>
                         <p class="list-property-description"><?php echo $product['description'];  ?></p>
-                        
-                        
+
+                        <?php if($state == 'current') { ?>
                         <?php if(array_key_exists('auction', $product)) { ?>
                             <h4 class='list-property-auction'><b><?php echo $text_auction; ?>:</b> <?php echo $product['auction']; ?></h4>
                         <?php } ?>
@@ -58,7 +58,7 @@
                         <?php if(array_key_exists('opendays', $product)) { ?>
                             <h4 class='list-property-auction'><b><?php echo $text_opendays; ?>:</b> <?php echo $product['opendays']; ?></h4>
                         <?php } ?>
-                        
+                        <?php } ?>
                         
                         <?php if (array_key_exists('attributes', $product)) { ?>
                         <ul class="list-inline list-property-attributs">
