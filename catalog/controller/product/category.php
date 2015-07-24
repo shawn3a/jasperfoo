@@ -291,6 +291,8 @@ class ControllerProductCategory extends Controller {
                                 foreach ($data['products'] as &$product) {
                                     $product['auction'] = $this->model_catalog_product->getAttributeByName('auction', $product['product_id']);
                                     $product['opendays'] = $this->model_catalog_product->getAttributeByName('opendays', $product['product_id']);
+                                    $product['highest'] = $this->model_catalog_product->getAttributeByName('highest', $product['product_id']);
+
 
                                     foreach (self::$attributes as $attribute) {
                                          $temp_text = $this->model_catalog_product->getAttributeByName($attribute, $product['product_id']);

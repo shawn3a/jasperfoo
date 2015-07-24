@@ -31,7 +31,15 @@
                         <?php } ?>
                         <h3 class='list-property-name'><?php echo $product['name']; ?>
                             <?php if($state == 'sold') { ?>
-                            <span class="sold-price"><?php echo $product['price']; ?><image class="sold-star" src="image/star.png" ></span>
+                            <span class="sold-price
+                            <?php
+                                if ($product['highest']) echo 'highest';
+                            ?>
+                            "><?php echo $product['price']; ?>
+                                <?php if ($product['highest']) { ?>
+                                    <image class="sold-star" src="image/star.png" >
+                                <?php } ?>
+                            </span>
                             <?php } ?>
                         </h3>
                             
