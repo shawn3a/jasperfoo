@@ -101,6 +101,7 @@ class ControllerModuleFeatured extends Controller {
 							$image = $this->model_tool_image->resize('placeholder.png', $setting['width'], $setting['height']);
 						}
 						
+                                                $max_length = 100;
 						$data['products'][] = array(
 						    
 							'product_id'  => $product_info['product_id'],
