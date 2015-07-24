@@ -57,7 +57,7 @@
 
                 </div>
                 <div class="back-link col-sm-6">
-                    <a class="pull-right" href="javascript:history.go(-1);">Back to listings</a>
+                    <a class="pull-right" href="javascript:history.go(-1);"><?php echo $text_back; ?></a>
                 </div>
             </div>
         </div>

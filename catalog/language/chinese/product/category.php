@@ -31,4 +31,5 @@ $_['text_model_desc']   = '型号 Z - A';
 $_['text_limit']        = '显示：';
 $_['text_auction']                = '拍卖';
 $_['text_opendays']                = '开放时间';
+$_['text_indicator'] = '代表当前街道卖出的最高价格';
 ?>

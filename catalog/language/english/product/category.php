@@ -24,3 +24,4 @@ $_['text_model_desc']   = 'Model (Z - A)';
 $_['text_limit']        = 'Show:';
 $_['text_auction']                = 'Auction';
 $_['text_opendays']                = 'Open Homes';
+$_['text_indicator'] = 'Indicates record price at the time of sale';

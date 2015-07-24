@@ -22,7 +22,7 @@ $_['text_shopping_cart'] = '购物车';
 $_['text_product']           = '商品';
 $_['text_new_release']           = '新到商品';
 $_['text_special']           = '特价商品';
-$_['text_contact_us']           = '联系我们';
+$_['text_contact_us']           = '联系我';
 $_['text_register']      = '注册';
 $_['text_login']         = '登录';
 $_['text_brand_product']   = '品牌专区';
@@ -32,10 +32,10 @@ $_['text_transaction']   = '交易';
 $_['text_download']      = '下载';
 $_['text_logout']        = '退出';
 
-$_['text_about']           = '关于我们';
+$_['text_about']           = '关于我';
 $_['text_sold']           = '已售房产';
 $_['text_current']           = '在售房产';
-$_['text_contact']           = '联系我们';
+$_['text_contact']           = '联系我';
 
 
 

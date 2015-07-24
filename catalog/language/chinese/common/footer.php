@@ -3,10 +3,10 @@
  * $Author: http://www.opencartchina.com 
 **/
 // Text
-$_['text_information']  = '关于我们';
+$_['text_information']  = '关于我';
 $_['text_service']      = '会员服务';
 $_['text_extra']        = '其他';
-$_['text_contact']      = '联系我们';
+$_['text_contact']      = '联系我';
 $_['text_return']       = '退换服务';
 $_['text_sitemap']      = '网站地图';
 $_['text_manufacturer'] = '品牌专区';
@@ -19,7 +19,7 @@ $_['text_reward']      = '会员积分';
 $_['text_agent']      = '代理请求';
 $_['text_address']      = '联系地址';
 $_['text_forgotten']      = '忘记密码';
-$_['text_follow']       = '跟随我们';
+$_['text_follow']       = '跟随我';
 $_['text_support']      = '帮助热线';
 $_['text_order']        = '历史订单';
 $_['text_wishlist']     = '收藏列表';
@@ -39,6 +39,6 @@ $_['text_privacy']   = ' 隐私条款';
 $_['text_disclaimer']   = '放弃条款';
 $_['text_advice']   = '消费者建议';
 
-$_['text_about']      = '关于我们';
+$_['text_about']      = '关于我';
 
 ?>

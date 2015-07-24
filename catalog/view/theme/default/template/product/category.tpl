@@ -81,7 +81,7 @@
                 <?php if($state == 'sold') { ?>
                 <div class="text-center bottom-indicator">
                     <image class="sold-star" src="image/star.png" >
-                    Indicates record price at the time of sale
+                    <?php echo $text_indicator; ?>
                 </div>
                 <?php } ?>
                 <div class="col-sm-12 text-right"><?php echo $pagination; ?></div>

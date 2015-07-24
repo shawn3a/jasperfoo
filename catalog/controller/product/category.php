@@ -144,6 +144,8 @@ class ControllerProductCategory extends Controller {
 			$data['text_limit'] = $this->language->get('text_limit');
 
 			$data['text_auction'] = $this->language->get('text_auction');
+            $data['text_indicator'] = $this->language->get('text_indicator');
+            $data['text_back'] = $this->language->get('text_back');
 			$data['text_opendays'] = $this->language->get('text_opendays');
 
 
@@ -260,12 +262,15 @@ class ControllerProductCategory extends Controller {
 				} else {
 					$rating = false;
 				}
+
+                $this->category_id = $category_id;
+                $this->setState();
                                 
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
-					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 200) . '..',
+					'description' => $this->state === 'sold' ? $result['description'] : utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 200) . '..',
 					'price'       => $price,
 					'special'     => $special,
 					'tax'         => $tax,
